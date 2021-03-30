@@ -53,6 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'apiUrl' => env('API_URL', 'http://api.sunvest.test'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -165,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        App\Providers\FortifyServiceProvider::class,
 
         /*
          * Application Service Providers...
