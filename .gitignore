@@ -21,3 +21,18 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+
+# Custom
+*.zip
+*.exe
+*/images/*
+images/*
+*/uploads/*
+uploads/*
+*/error_log
+error_log
+*/.idea/*
+.idea/*
+*/.vscode/*
+.vscode/*
+/storage/tmp/
