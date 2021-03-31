@@ -9,10 +9,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, Sluggable, HasRoleAndPermission;
+    use HasFactory, Notifiable, Sluggable, HasRoleAndPermission, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.

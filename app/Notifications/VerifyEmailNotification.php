@@ -65,7 +65,7 @@ class VerifyEmailNotification extends VerifyEmail
 
         return (new MailMessage)
             ->view('mail.verify_email',['title'=>'Verify your email','url'=>$verificationUrl,'firstname'=>$name])
-            ->from('noreply@sunvest.com','Sunvest')
+            ->from('sunvest@appyclan.com','Sunvest')
             ->subject('Verify Your Email Address');
     }
 

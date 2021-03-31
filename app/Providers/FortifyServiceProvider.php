@@ -44,10 +44,14 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        // register new RegisterResponse
+        // register new responses
         $this->app->singleton(
             \Laravel\Fortify\Contracts\RegisterResponse::class,
             \App\Http\Responses\RegisterResponse::class
+        );
+        $this->app->singleton(
+            \Laravel\Fortify\Contracts\LoginResponse::class,
+            \App\Http\Responses\LoginResponse::class
         );
 
         // Register new requests
@@ -64,6 +68,10 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->singleton(
             \Laravel\Fortify\Http\Controllers\EmailVerificationNotificationController::class,
             \App\Http\Controllers\Fortify\EmailVerificationNotificationController::class
+        );
+        $this->app->singleton(
+            \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::class,
+            \App\Http\Controllers\Fortify\AuthenticatedSessionController::class
         );
     }
 }

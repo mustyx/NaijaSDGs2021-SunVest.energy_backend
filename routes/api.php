@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\Usercontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -24,18 +26,24 @@ use Laravel\Fortify\Http\Controllers\VerifyEmailController;
 Route::get('/', function () {
     return ['success'=>true];
 });
+Route::get('/me', function () {
+    return ['success'=>config('app.apiUrl')];
+});
 
 // Authentication...
+// user controller routes
+Route::post("register", [AuthController::class, "register"]);
+
+Route::post("login", [AuthController::class, "login"]);
+
 $limiter = config('fortify.limiters.login');
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    ->middleware(array_filter([
-        'guest',
-        $limiter ? 'throttle:'.$limiter : null,
+/*Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    ->middleware(array_filter(['guest', $limiter ? 'throttle:'.$limiter : null,
     ]));
 
 // Registration...
 Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->middleware(['guest']);
+    ->middleware(['guest']);*/
 
 // Email Verification...
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
@@ -48,12 +56,11 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 
 
 //Main app routes
-Route::middleware('auth:sanctum')->group(function (){
+Route::middleware('auth:api')->group(function (){
+    Route::get('/user',[Usercontroller::class,'index']);
 
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-        ->name('logout');
-
-
+//    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout']);
 
 /*    // Password Reset...
     if (Features::enabled(Features::resetPasswords())) {
@@ -105,11 +112,6 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::post('/user/confirm-password', [ConfirmablePasswordController::class, 'store'])
         ->middleware(['auth']);
 */
-
-
-
-
-
 
     Route::prefix('admin')->name('admin.')->group(function (){
 
