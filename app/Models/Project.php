@@ -29,6 +29,16 @@ class Project extends Model
     ];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
@@ -42,8 +52,8 @@ class Project extends Model
         ];
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function creator(){
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function investments(){

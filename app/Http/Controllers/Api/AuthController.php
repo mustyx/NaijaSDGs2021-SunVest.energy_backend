@@ -14,6 +14,13 @@ use Laravel\Fortify\Fortify;
 use App\Actions\Fortify\PasswordValidationRules;
 use App\Traits\ApiResponseTrait;
 
+
+/**
+ * @group Auth
+ *
+ * Manage authentication routes
+ */
+
 class AuthController extends Controller
 {
     use PasswordValidationRules,ApiResponseTrait;

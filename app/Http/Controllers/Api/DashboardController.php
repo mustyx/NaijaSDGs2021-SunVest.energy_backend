@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Traits\ApiResponseTrait;
 
-class Usercontroller extends Controller
+/**
+ * @group Dashboard
+ *
+ * Manage user dashboard
+ */
+
+class DashboardController extends Controller
 {
-    use ApiResponseTrait;
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,7 @@ class Usercontroller extends Controller
      */
     public function index()
     {
-        return $this->success(auth()->check(),'Worked');
+        //
     }
 
     /**

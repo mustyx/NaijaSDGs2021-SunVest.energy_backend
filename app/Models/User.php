@@ -10,10 +10,11 @@ use Illuminate\Notifications\Notifiable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, Sluggable, HasRoleAndPermission, HasApiTokens;
+    use HasFactory, Notifiable, Sluggable, HasRoleAndPermission, HasApiTokens, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -71,8 +72,17 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Userdetail::class);
     }
 
-    public function projects(){
+    public function createdProjects(){
         return $this->hasMany(Project::class,'created_by');
+    }
+
+    public function projects(){
+        $user = $this;
+        return Project::whereHas('investments',function ($q) use($user){
+            $q->whereHas('user',function ($q1) use($user){
+                $q1->where('id',$user->id);
+            });
+        })->get();
     }
 
     public function investments(){

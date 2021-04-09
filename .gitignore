@@ -23,6 +23,8 @@ Homestead.json
 .phpunit.result.cache
 
 # Custom
+public/docs
+resources/docs
 *.zip
 *.exe
 */images/*

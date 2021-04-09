@@ -1,0 +1,3358 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Sunvest Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css" media="screen" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+        <script src="js/all.js"></script>
+
+        <link rel="stylesheet" href="css/highlight-darcula.css" media="" />
+        <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        NAV
+            <img src="images/navbar.png" alt="-image" class=""/>
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="./collection.json">View Postman collection</a></li>
+                            <li><a href="./openapi.yaml">View OpenAPI (Swagger) spec</a></li>
+                            <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: April 9 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with the Sunvest API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script>
+    var baseUrl = "https://api.sunvest.test";
+</script>
+<script src="js/tryitout-2.5.3.js"></script>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">https://api.sunvest.test</code></pre><h1>Authenticating requests</h1>
+<p>This API is not authenticated.</p><h1>Auth</h1>
+<p>Manage authentication routes</p>
+<h2>register</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTregister" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTregister"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTregister"></code></pre>
+</div>
+<div id="execution-error-POSTregister" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTregister"></code></pre>
+</div>
+<form id="form-POSTregister" data-method="POST" data-path="register" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTregister', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTregister" onclick="tryItOut('POSTregister');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTregister" onclick="cancelTryOut('POSTregister');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTregister" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>register</code></b>
+</p>
+</form>
+<h2>login</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTlogin" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTlogin"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTlogin"></code></pre>
+</div>
+<div id="execution-error-POSTlogin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTlogin"></code></pre>
+</div>
+<form id="form-POSTlogin" data-method="POST" data-path="login" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTlogin', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTlogin" onclick="tryItOut('POSTlogin');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTlogin" onclick="cancelTryOut('POSTlogin');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTlogin" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>login</code></b>
+</p>
+</form>
+<h2>logout</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTlogout" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTlogout"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTlogout"></code></pre>
+</div>
+<div id="execution-error-POSTlogout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTlogout"></code></pre>
+</div>
+<form id="form-POSTlogout" data-method="POST" data-path="logout" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTlogout', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTlogout" onclick="tryItOut('POSTlogout');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTlogout" onclick="cancelTryOut('POSTlogout');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTlogout" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>logout</code></b>
+</p>
+</form><h1>Dashboard - ADMIN</h1>
+<p>Manage dashboard</p>
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/admin" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETadmin" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETadmin"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETadmin"></code></pre>
+</div>
+<div id="execution-error-GETadmin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETadmin"></code></pre>
+</div>
+<form id="form-GETadmin" data-method="GET" data-path="admin" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin" onclick="tryItOut('GETadmin');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin" onclick="cancelTryOut('GETadmin');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>admin</code></b>
+</p>
+</form>
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/admin" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTadmin" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTadmin"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTadmin"></code></pre>
+</div>
+<div id="execution-error-POSTadmin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTadmin"></code></pre>
+</div>
+<form id="form-POSTadmin" data-method="POST" data-path="admin" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTadmin', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTadmin" onclick="tryItOut('POSTadmin');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTadmin" onclick="cancelTryOut('POSTadmin');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTadmin" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>admin</code></b>
+</p>
+</form>
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/admin/est" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/est"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
+    "line": 43,
+    "trace": [
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php",
+            "line": 162,
+            "function": "handleMatchedRoute",
+            "class": "Illuminate\\Routing\\AbstractRouteCollection",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 647,
+            "function": "match",
+            "class": "Illuminate\\Routing\\RouteCollection",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 636,
+            "function": "findRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 625,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 166,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+            "line": 86,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 141,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 110,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 324,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 305,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 236,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 172,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 127,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 119,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 36,
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 40,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 93,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 611,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 136,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 256,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\symfony\\console\\Application.php",
+            "line": 971,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\symfony\\console\\Application.php",
+            "line": 290,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\symfony\\console\\Application.php",
+            "line": 166,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 92,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<div id="execution-results-GETadmin---" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETadmin---"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETadmin---"></code></pre>
+</div>
+<div id="execution-error-GETadmin---" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETadmin---"></code></pre>
+</div>
+<form id="form-GETadmin---" data-method="GET" data-path="admin/{}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin---', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin---" onclick="tryItOut('GETadmin---');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin---" onclick="cancelTryOut('GETadmin---');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin---" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>admin/{}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code></code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="" data-endpoint="GETadmin---" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://api.sunvest.test/admin/officia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/officia"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-PUTadmin---" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTadmin---"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTadmin---"></code></pre>
+</div>
+<div id="execution-error-PUTadmin---" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTadmin---"></code></pre>
+</div>
+<form id="form-PUTadmin---" data-method="PUT" data-path="admin/{}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTadmin---', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTadmin---" onclick="tryItOut('PUTadmin---');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTadmin---" onclick="cancelTryOut('PUTadmin---');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTadmin---" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-darkblue">PUT</small>
+ <b><code>admin/{}</code></b>
+</p>
+<p>
+<small class="badge badge-purple">PATCH</small>
+ <b><code>admin/{}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code></code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="" data-endpoint="PUTadmin---" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://api.sunvest.test/admin/sed" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/sed"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-DELETEadmin---" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEadmin---"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEadmin---"></code></pre>
+</div>
+<div id="execution-error-DELETEadmin---" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEadmin---"></code></pre>
+</div>
+<form id="form-DELETEadmin---" data-method="DELETE" data-path="admin/{}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEadmin---', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEadmin---" onclick="tryItOut('DELETEadmin---');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEadmin---" onclick="cancelTryOut('DELETEadmin---');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEadmin---" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>admin/{}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code></code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="" data-endpoint="DELETEadmin---" data-component="url" required  hidden>
+<br>
+</p>
+</form><h1>Endpoints</h1>
+<h2>/</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true
+}</code></pre>
+<div id="execution-results-GET-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GET-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GET-"></code></pre>
+</div>
+<div id="execution-error-GET-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GET-"></code></pre>
+</div>
+<form id="form-GET-" data-method="GET" data-path="/" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GET-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GET-" onclick="tryItOut('GET-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GET-" onclick="cancelTryOut('GET-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GET-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>/</code></b>
+</p>
+</form>
+<h2>me</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/me" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/me"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": "api.sunvest.test"
+}</code></pre>
+<div id="execution-results-GETme" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETme"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETme"></code></pre>
+</div>
+<div id="execution-error-GETme" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETme"></code></pre>
+</div>
+<form id="form-GETme" data-method="GET" data-path="me" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETme', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETme" onclick="tryItOut('GETme');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETme" onclick="cancelTryOut('GETme');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETme" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>me</code></b>
+</p>
+</form>
+<h2>Mark the authenticated user&#039;s email address as verified.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/email/verify/vitae/aut" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/email/verify/vitae/aut"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (403):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Invalid signature.",
+    "exception": "Illuminate\\Routing\\Exceptions\\InvalidSignatureException",
+    "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ValidateSignature.php",
+    "line": 26,
+    "trace": [
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\ValidateSignature",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\app\\Http\\Middleware\\RedirectIfAuthenticated.php",
+            "line": 30,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "App\\Http\\Middleware\\RedirectIfAuthenticated",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
+            "line": 50,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 127,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 63,
+            "function": "handleRequest",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 127,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 103,
+            "function": "handleRequest",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+            "line": 55,
+            "function": "handleRequestUsingNamedLimiter",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php",
+            "line": 121,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php",
+            "line": 63,
+            "function": "handleStatefulRequest",
+            "class": "Illuminate\\Session\\Middleware\\StartSession",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Session\\Middleware\\StartSession",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php",
+            "line": 67,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Cookie\\Middleware\\EncryptCookies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php",
+            "line": 33,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Laravel\\Sanctum\\Http\\Middleware\\{closure}",
+            "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php",
+            "line": 34,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 695,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 670,
+            "function": "runRouteWithinStack",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 636,
+            "function": "runRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 625,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 166,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 128,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+            "line": 86,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fruitcake\\Cors\\HandleCors",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\fideloper\\proxy\\src\\TrustProxies.php",
+            "line": 57,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 167,
+            "function": "handle",
+            "class": "Fideloper\\Proxy\\TrustProxies",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 103,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 141,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 110,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 324,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 305,
+            "function": "callLaravelOrLumenRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 76,
+            "function": "makeApiCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 51,
+            "function": "makeResponseCall",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+            "line": 41,
+            "function": "makeResponseCallIfEnabledAndNoSuccessResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 236,
+            "function": "__invoke",
+            "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 172,
+            "function": "iterateThroughStrategies",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Generator.php",
+            "line": 127,
+            "function": "fetchResponses",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 119,
+            "function": "processRoute",
+            "class": "Knuckles\\Scribe\\Extracting\\Generator",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+            "line": 73,
+            "function": "processRoutes",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 36,
+            "function": "handle",
+            "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+            "line": 40,
+            "function": "Illuminate\\Container\\{closure}",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 93,
+            "function": "unwrapIfClosure",
+            "class": "Illuminate\\Container\\Util",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+            "line": 37,
+            "function": "callBoundMethod",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+            "line": 611,
+            "function": "call",
+            "class": "Illuminate\\Container\\BoundMethod",
+            "type": "::"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 136,
+            "function": "call",
+            "class": "Illuminate\\Container\\Container",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\symfony\\console\\Command\\Command.php",
+            "line": 256,
+            "function": "execute",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+            "line": 121,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Command\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\symfony\\console\\Application.php",
+            "line": 971,
+            "function": "run",
+            "class": "Illuminate\\Console\\Command",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\symfony\\console\\Application.php",
+            "line": 290,
+            "function": "doRunCommand",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\symfony\\console\\Application.php",
+            "line": 166,
+            "function": "doRun",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+            "line": 92,
+            "function": "run",
+            "class": "Symfony\\Component\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+            "line": 129,
+            "function": "run",
+            "class": "Illuminate\\Console\\Application",
+            "type": "-&gt;"
+        },
+        {
+            "file": "C:\\Users\\OluDre\\work\\appyclan\\projects\\sunvest\\artisan",
+            "line": 37,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Console\\Kernel",
+            "type": "-&gt;"
+        }
+    ]
+}</code></pre>
+<div id="execution-results-GETemail-verify--id---hash-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETemail-verify--id---hash-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETemail-verify--id---hash-"></code></pre>
+</div>
+<div id="execution-error-GETemail-verify--id---hash-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETemail-verify--id---hash-"></code></pre>
+</div>
+<form id="form-GETemail-verify--id---hash-" data-method="GET" data-path="email/verify/{id}/{hash}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETemail-verify--id---hash-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETemail-verify--id---hash-" onclick="tryItOut('GETemail-verify--id---hash-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETemail-verify--id---hash-" onclick="cancelTryOut('GETemail-verify--id---hash-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETemail-verify--id---hash-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>email/verify/{id}/{hash}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="id" data-endpoint="GETemail-verify--id---hash-" data-component="url" required  hidden>
+<br>
+</p>
+<p>
+<b><code>hash</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="hash" data-endpoint="GETemail-verify--id---hash-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>Send a new email verification notification.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/email/verification-notification" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/email/verification-notification"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTemail-verification-notification" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTemail-verification-notification"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTemail-verification-notification"></code></pre>
+</div>
+<div id="execution-error-POSTemail-verification-notification" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTemail-verification-notification"></code></pre>
+</div>
+<form id="form-POSTemail-verification-notification" data-method="POST" data-path="email/verification-notification" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTemail-verification-notification', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTemail-verification-notification" onclick="tryItOut('POSTemail-verification-notification');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTemail-verification-notification" onclick="cancelTryOut('POSTemail-verification-notification');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTemail-verification-notification" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>email/verification-notification</code></b>
+</p>
+</form><h1>Investments - ADMIN</h1>
+<p>Manage investments</p>
+<h2>GET Investments</h2>
+<p>List all investments</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/admin/investments?page=3" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/investments"
+);
+
+let params = {
+    "page": "3",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETadmin-investments" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETadmin-investments"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETadmin-investments"></code></pre>
+</div>
+<div id="execution-error-GETadmin-investments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETadmin-investments"></code></pre>
+</div>
+<form id="form-GETadmin-investments" data-method="GET" data-path="admin/investments" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin-investments', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin-investments" onclick="tryItOut('GETadmin-investments');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin-investments" onclick="cancelTryOut('GETadmin-investments');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin-investments" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>admin/investments</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="page" data-endpoint="GETadmin-investments" data-component="query"  hidden>
+<br>
+Which page to show.</p>
+</form>
+<h2>POST Investment</h2>
+<p>Create a new investment</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/admin/investments" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"user_id":"5,\"dre-1\"","project_id":"aut","cells":10}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/investments"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": "5,\"dre-1\"",
+    "project_id": "aut",
+    "cells": 10
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTadmin-investments" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTadmin-investments"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTadmin-investments"></code></pre>
+</div>
+<div id="execution-error-POSTadmin-investments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTadmin-investments"></code></pre>
+</div>
+<form id="form-POSTadmin-investments" data-method="POST" data-path="admin/investments" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTadmin-investments', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTadmin-investments" onclick="tryItOut('POSTadmin-investments');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTadmin-investments" onclick="cancelTryOut('POSTadmin-investments');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTadmin-investments" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>admin/investments</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>user_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user_id" data-endpoint="POSTadmin-investments" data-component="body" required  hidden>
+<br>
+Id/username of user.</p>
+<p>
+<b><code>project_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project_id" data-endpoint="POSTadmin-investments" data-component="body" required  hidden>
+<br>
+Id/slug of project item.</p>
+<p>
+<b><code>cells</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="cells" data-endpoint="POSTadmin-investments" data-component="body" required  hidden>
+<br>
+Total number of cells the user wishes to invest in.</p>
+
+</form>
+<h2>GET Single Investment</h2>
+<p>Get information on a single investment</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/admin/investments/corporis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/investments/corporis"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETadmin-investments--investment-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETadmin-investments--investment-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETadmin-investments--investment-"></code></pre>
+</div>
+<div id="execution-error-GETadmin-investments--investment-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETadmin-investments--investment-"></code></pre>
+</div>
+<form id="form-GETadmin-investments--investment-" data-method="GET" data-path="admin/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin-investments--investment-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin-investments--investment-" onclick="tryItOut('GETadmin-investments--investment-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin-investments--investment-" onclick="cancelTryOut('GETadmin-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin-investments--investment-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>admin/investments/{investment}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="investment" data-endpoint="GETadmin-investments--investment-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>PUT Investment</h2>
+<p>Update investment data. This should be a POST request</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://api.sunvest.test/admin/investments/ducimus" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"user_id":"5,\"dre-1\"","project_id":"omnis","cells":10,"_method":"\"PUT\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/investments/ducimus"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": "5,\"dre-1\"",
+    "project_id": "omnis",
+    "cells": 10,
+    "_method": "\"PUT\""
+}
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-PUTadmin-investments--investment-" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTadmin-investments--investment-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTadmin-investments--investment-"></code></pre>
+</div>
+<div id="execution-error-PUTadmin-investments--investment-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTadmin-investments--investment-"></code></pre>
+</div>
+<form id="form-PUTadmin-investments--investment-" data-method="PUT" data-path="admin/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTadmin-investments--investment-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTadmin-investments--investment-" onclick="tryItOut('PUTadmin-investments--investment-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTadmin-investments--investment-" onclick="cancelTryOut('PUTadmin-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTadmin-investments--investment-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-darkblue">PUT</small>
+ <b><code>admin/investments/{investment}</code></b>
+</p>
+<p>
+<small class="badge badge-purple">PATCH</small>
+ <b><code>admin/investments/{investment}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="investment" data-endpoint="PUTadmin-investments--investment-" data-component="url" required  hidden>
+<br>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>user_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user_id" data-endpoint="PUTadmin-investments--investment-" data-component="body" required  hidden>
+<br>
+Id/username of user.</p>
+<p>
+<b><code>project_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project_id" data-endpoint="PUTadmin-investments--investment-" data-component="body" required  hidden>
+<br>
+Id/slug of project item.</p>
+<p>
+<b><code>cells</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="cells" data-endpoint="PUTadmin-investments--investment-" data-component="body" required  hidden>
+<br>
+Total number of cells the user wishes to invest in.</p>
+<p>
+<b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="_method" data-endpoint="PUTadmin-investments--investment-" data-component="body" required  hidden>
+<br>
+This will tell backend to see it as an update request.</p>
+
+</form>
+<h2>DELETE Investment</h2>
+<p>Soft delete a investment. This should be a POST request</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://api.sunvest.test/admin/investments/voluptate" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"_method":"\"DELETE\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/investments/voluptate"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "_method": "\"DELETE\""
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-DELETEadmin-investments--investment-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEadmin-investments--investment-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEadmin-investments--investment-"></code></pre>
+</div>
+<div id="execution-error-DELETEadmin-investments--investment-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEadmin-investments--investment-"></code></pre>
+</div>
+<form id="form-DELETEadmin-investments--investment-" data-method="DELETE" data-path="admin/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEadmin-investments--investment-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEadmin-investments--investment-" onclick="tryItOut('DELETEadmin-investments--investment-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEadmin-investments--investment-" onclick="cancelTryOut('DELETEadmin-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEadmin-investments--investment-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>admin/investments/{investment}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="investment" data-endpoint="DELETEadmin-investments--investment-" data-component="url" required  hidden>
+<br>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="_method" data-endpoint="DELETEadmin-investments--investment-" data-component="body" required  hidden>
+<br>
+This will tell backend that its actually a delete request.</p>
+
+</form><h1>Investments</h1>
+<p>Manage investments</p>
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/user/investments" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/investments"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETuser-investments" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETuser-investments"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETuser-investments"></code></pre>
+</div>
+<div id="execution-error-GETuser-investments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETuser-investments"></code></pre>
+</div>
+<form id="form-GETuser-investments" data-method="GET" data-path="user/investments" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-investments', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-investments" onclick="tryItOut('GETuser-investments');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-investments" onclick="cancelTryOut('GETuser-investments');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-investments" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>user/investments</code></b>
+</p>
+</form>
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/user/investments" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/investments"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTuser-investments" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTuser-investments"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTuser-investments"></code></pre>
+</div>
+<div id="execution-error-POSTuser-investments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTuser-investments"></code></pre>
+</div>
+<form id="form-POSTuser-investments" data-method="POST" data-path="user/investments" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTuser-investments', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTuser-investments" onclick="tryItOut('POSTuser-investments');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTuser-investments" onclick="cancelTryOut('POSTuser-investments');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTuser-investments" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>user/investments</code></b>
+</p>
+</form>
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/user/investments/perferendis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/investments/perferendis"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETuser-investments--investment-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETuser-investments--investment-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETuser-investments--investment-"></code></pre>
+</div>
+<div id="execution-error-GETuser-investments--investment-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETuser-investments--investment-"></code></pre>
+</div>
+<form id="form-GETuser-investments--investment-" data-method="GET" data-path="user/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-investments--investment-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-investments--investment-" onclick="tryItOut('GETuser-investments--investment-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-investments--investment-" onclick="cancelTryOut('GETuser-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-investments--investment-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>user/investments/{investment}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="investment" data-endpoint="GETuser-investments--investment-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://api.sunvest.test/user/investments/dolorum" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/investments/dolorum"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-PUTuser-investments--investment-" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTuser-investments--investment-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTuser-investments--investment-"></code></pre>
+</div>
+<div id="execution-error-PUTuser-investments--investment-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTuser-investments--investment-"></code></pre>
+</div>
+<form id="form-PUTuser-investments--investment-" data-method="PUT" data-path="user/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTuser-investments--investment-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTuser-investments--investment-" onclick="tryItOut('PUTuser-investments--investment-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTuser-investments--investment-" onclick="cancelTryOut('PUTuser-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTuser-investments--investment-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-darkblue">PUT</small>
+ <b><code>user/investments/{investment}</code></b>
+</p>
+<p>
+<small class="badge badge-purple">PATCH</small>
+ <b><code>user/investments/{investment}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="investment" data-endpoint="PUTuser-investments--investment-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://api.sunvest.test/user/investments/repellendus" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/investments/repellendus"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-DELETEuser-investments--investment-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEuser-investments--investment-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEuser-investments--investment-"></code></pre>
+</div>
+<div id="execution-error-DELETEuser-investments--investment-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEuser-investments--investment-"></code></pre>
+</div>
+<form id="form-DELETEuser-investments--investment-" data-method="DELETE" data-path="user/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEuser-investments--investment-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEuser-investments--investment-" onclick="tryItOut('DELETEuser-investments--investment-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEuser-investments--investment-" onclick="cancelTryOut('DELETEuser-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEuser-investments--investment-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>user/investments/{investment}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="investment" data-endpoint="DELETEuser-investments--investment-" data-component="url" required  hidden>
+<br>
+</p>
+</form><h1>Projects - ADMIN</h1>
+<p>Manage projects</p>
+<h2>GET Projects</h2>
+<p>List all projects</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/admin/projects?page=3" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/projects"
+);
+
+let params = {
+    "page": "3",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETadmin-projects" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETadmin-projects"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETadmin-projects"></code></pre>
+</div>
+<div id="execution-error-GETadmin-projects" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETadmin-projects"></code></pre>
+</div>
+<form id="form-GETadmin-projects" data-method="GET" data-path="admin/projects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin-projects', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin-projects" onclick="tryItOut('GETadmin-projects');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin-projects" onclick="cancelTryOut('GETadmin-projects');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin-projects" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>admin/projects</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="page" data-endpoint="GETadmin-projects" data-component="query"  hidden>
+<br>
+Which page to show.</p>
+</form>
+<h2>POST Project</h2>
+<p>Create a new project</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/admin/projects" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"\"5KVA Solar Mini-Grid\"","description":"qui","total_cells":50,"cost_per_cell":5000,"profit":"10.5","maturity_period":20,"start_date":"\"25\/04\/2021\"","end_date":"09\/04\/2021","ad_due_date":"\"20\/04\/2021\"","due_date":"\"25\/05\/2021\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/projects"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "\"5KVA Solar Mini-Grid\"",
+    "description": "qui",
+    "total_cells": 50,
+    "cost_per_cell": 5000,
+    "profit": "10.5",
+    "maturity_period": 20,
+    "start_date": "\"25\/04\/2021\"",
+    "end_date": "09\/04\/2021",
+    "ad_due_date": "\"20\/04\/2021\"",
+    "due_date": "\"25\/05\/2021\""
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTadmin-projects" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTadmin-projects"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTadmin-projects"></code></pre>
+</div>
+<div id="execution-error-POSTadmin-projects" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTadmin-projects"></code></pre>
+</div>
+<form id="form-POSTadmin-projects" data-method="POST" data-path="admin/projects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTadmin-projects', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTadmin-projects" onclick="tryItOut('POSTadmin-projects');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTadmin-projects" onclick="cancelTryOut('POSTadmin-projects');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTadmin-projects" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>admin/projects</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+Name of project.</p>
+<p>
+<b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="description" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+Detailed description of projects.</p>
+<p>
+<b><code>total_cells</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="total_cells" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+Total number of cells the project has.</p>
+<p>
+<b><code>cost_per_cell</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="cost_per_cell" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+Investment cost per cell.</p>
+<p>
+<b><code>profit</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
+<input type="text" name="profit" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+Expected percentage profit after maturity</p>
+<p>
+<b><code>maturity_period</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="maturity_period" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+How long it will take for investment to mature in weeks.</p>
+<p>
+<b><code>start_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
+<input type="text" name="start_date" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+When project development will start.</p>
+<p>
+<b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="end_date" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+The value must be a valid date in the format d/m/Y.</p>
+<p>
+<b><code>ad_due_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
+<input type="text" name="ad_due_date" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+When this investment ad will expire.</p>
+<p>
+<b><code>due_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
+<input type="text" name="due_date" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<br>
+When project development will end.</p>
+
+</form>
+<h2>GET Single Project</h2>
+<p>Get information on a single project</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/admin/projects/voluptas" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/projects/voluptas"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETadmin-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETadmin-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETadmin-projects--project-"></code></pre>
+</div>
+<div id="execution-error-GETadmin-projects--project-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETadmin-projects--project-"></code></pre>
+</div>
+<form id="form-GETadmin-projects--project-" data-method="GET" data-path="admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin-projects--project-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin-projects--project-" onclick="tryItOut('GETadmin-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin-projects--project-" onclick="cancelTryOut('GETadmin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin-projects--project-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>admin/projects/{project}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project" data-endpoint="GETadmin-projects--project-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>PUT Project</h2>
+<p>Update project data. This should be a POST request</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://api.sunvest.test/admin/projects/quidem" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"\"5KVA Solar Mini-Grid\"","description":"est","total_cells":50,"cost_per_cell":5000,"profit":"10.5","maturity_period":20,"start_date":"\"25\/04\/2021\"","end_date":"09\/04\/2021","ad_due_date":"\"20\/04\/2021\"","_method":"\"PUT\"","due_date":"\"25\/05\/2021\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/projects/quidem"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "\"5KVA Solar Mini-Grid\"",
+    "description": "est",
+    "total_cells": 50,
+    "cost_per_cell": 5000,
+    "profit": "10.5",
+    "maturity_period": 20,
+    "start_date": "\"25\/04\/2021\"",
+    "end_date": "09\/04\/2021",
+    "ad_due_date": "\"20\/04\/2021\"",
+    "_method": "\"PUT\"",
+    "due_date": "\"25\/05\/2021\""
+}
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-PUTadmin-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTadmin-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTadmin-projects--project-"></code></pre>
+</div>
+<div id="execution-error-PUTadmin-projects--project-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTadmin-projects--project-"></code></pre>
+</div>
+<form id="form-PUTadmin-projects--project-" data-method="PUT" data-path="admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTadmin-projects--project-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTadmin-projects--project-" onclick="tryItOut('PUTadmin-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTadmin-projects--project-" onclick="cancelTryOut('PUTadmin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTadmin-projects--project-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-darkblue">PUT</small>
+ <b><code>admin/projects/{project}</code></b>
+</p>
+<p>
+<small class="badge badge-purple">PATCH</small>
+ <b><code>admin/projects/{project}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project" data-endpoint="PUTadmin-projects--project-" data-component="url" required  hidden>
+<br>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+Name of project.</p>
+<p>
+<b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="description" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+Detailed description of projects.</p>
+<p>
+<b><code>total_cells</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="total_cells" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+Total number of cells the project has.</p>
+<p>
+<b><code>cost_per_cell</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="cost_per_cell" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+Investment cost per cell.</p>
+<p>
+<b><code>profit</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
+<input type="text" name="profit" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+Expected percentage profit after maturity</p>
+<p>
+<b><code>maturity_period</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="maturity_period" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+How long it will take for investment to mature in weeks.</p>
+<p>
+<b><code>start_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
+<input type="text" name="start_date" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+When project development will start.</p>
+<p>
+<b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="end_date" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+The value must be a valid date in the format d/m/Y.</p>
+<p>
+<b><code>ad_due_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
+<input type="text" name="ad_due_date" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+When this investment ad will expire.</p>
+<p>
+<b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="_method" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+This will tell backend to see it as an update request.</p>
+<p>
+<b><code>due_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
+<input type="text" name="due_date" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<br>
+When project development will end.</p>
+
+</form>
+<h2>DELETE Project</h2>
+<p>Soft delete a project. This should be a POST request</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://api.sunvest.test/admin/projects/facere" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"_method":"\"DELETE\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/projects/facere"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "_method": "\"DELETE\""
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-DELETEadmin-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEadmin-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEadmin-projects--project-"></code></pre>
+</div>
+<div id="execution-error-DELETEadmin-projects--project-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEadmin-projects--project-"></code></pre>
+</div>
+<form id="form-DELETEadmin-projects--project-" data-method="DELETE" data-path="admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEadmin-projects--project-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEadmin-projects--project-" onclick="tryItOut('DELETEadmin-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEadmin-projects--project-" onclick="cancelTryOut('DELETEadmin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEadmin-projects--project-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>admin/projects/{project}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project" data-endpoint="DELETEadmin-projects--project-" data-component="url" required  hidden>
+<br>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="_method" data-endpoint="DELETEadmin-projects--project-" data-component="body" required  hidden>
+<br>
+This will tell backend that its actually a delete request.</p>
+
+</form><h1>Projects</h1>
+<p>Manage projects user has investments in</p>
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/user/projects" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/projects"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETuser-projects" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETuser-projects"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETuser-projects"></code></pre>
+</div>
+<div id="execution-error-GETuser-projects" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETuser-projects"></code></pre>
+</div>
+<form id="form-GETuser-projects" data-method="GET" data-path="user/projects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-projects', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-projects" onclick="tryItOut('GETuser-projects');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-projects" onclick="cancelTryOut('GETuser-projects');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-projects" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>user/projects</code></b>
+</p>
+</form>
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/user/projects" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/projects"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTuser-projects" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTuser-projects"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTuser-projects"></code></pre>
+</div>
+<div id="execution-error-POSTuser-projects" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTuser-projects"></code></pre>
+</div>
+<form id="form-POSTuser-projects" data-method="POST" data-path="user/projects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTuser-projects', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTuser-projects" onclick="tryItOut('POSTuser-projects');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTuser-projects" onclick="cancelTryOut('POSTuser-projects');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTuser-projects" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>user/projects</code></b>
+</p>
+</form>
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/user/projects/ullam" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/projects/ullam"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETuser-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETuser-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETuser-projects--project-"></code></pre>
+</div>
+<div id="execution-error-GETuser-projects--project-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETuser-projects--project-"></code></pre>
+</div>
+<form id="form-GETuser-projects--project-" data-method="GET" data-path="user/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-projects--project-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-projects--project-" onclick="tryItOut('GETuser-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-projects--project-" onclick="cancelTryOut('GETuser-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-projects--project-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>user/projects/{project}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project" data-endpoint="GETuser-projects--project-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://api.sunvest.test/user/projects/voluptas" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/projects/voluptas"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-PUTuser-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTuser-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTuser-projects--project-"></code></pre>
+</div>
+<div id="execution-error-PUTuser-projects--project-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTuser-projects--project-"></code></pre>
+</div>
+<form id="form-PUTuser-projects--project-" data-method="PUT" data-path="user/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTuser-projects--project-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTuser-projects--project-" onclick="tryItOut('PUTuser-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTuser-projects--project-" onclick="cancelTryOut('PUTuser-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTuser-projects--project-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-darkblue">PUT</small>
+ <b><code>user/projects/{project}</code></b>
+</p>
+<p>
+<small class="badge badge-purple">PATCH</small>
+ <b><code>user/projects/{project}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project" data-endpoint="PUTuser-projects--project-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://api.sunvest.test/user/projects/in" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/projects/in"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-DELETEuser-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEuser-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEuser-projects--project-"></code></pre>
+</div>
+<div id="execution-error-DELETEuser-projects--project-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEuser-projects--project-"></code></pre>
+</div>
+<form id="form-DELETEuser-projects--project-" data-method="DELETE" data-path="user/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEuser-projects--project-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEuser-projects--project-" onclick="tryItOut('DELETEuser-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEuser-projects--project-" onclick="cancelTryOut('DELETEuser-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEuser-projects--project-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>user/projects/{project}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project" data-endpoint="DELETEuser-projects--project-" data-component="url" required  hidden>
+<br>
+</p>
+</form><h1>Users - ADMIN</h1>
+<p>Manage users</p>
+<h2>GET Users</h2>
+<p>List all users with extra details</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/admin/users?page=3" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/users"
+);
+
+let params = {
+    "page": "3",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETadmin-users" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETadmin-users"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETadmin-users"></code></pre>
+</div>
+<div id="execution-error-GETadmin-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETadmin-users"></code></pre>
+</div>
+<form id="form-GETadmin-users" data-method="GET" data-path="admin/users" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin-users', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin-users" onclick="tryItOut('GETadmin-users');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin-users" onclick="cancelTryOut('GETadmin-users');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin-users" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>admin/users</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="page" data-endpoint="GETadmin-users" data-component="query"  hidden>
+<br>
+Which page to show.</p>
+</form>
+<h2>POST User</h2>
+<p>Create a new user</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/admin/users" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"firstName":"\"Damilare\"","lastName":"\"Abi\"","email":"\"test@test.com\"","phone":"\"Abi\"","password":"\"123456\"","password_confirmation":"\"123456\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/users"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "firstName": "\"Damilare\"",
+    "lastName": "\"Abi\"",
+    "email": "\"test@test.com\"",
+    "phone": "\"Abi\"",
+    "password": "\"123456\"",
+    "password_confirmation": "\"123456\""
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTadmin-users" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTadmin-users"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTadmin-users"></code></pre>
+</div>
+<div id="execution-error-POSTadmin-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTadmin-users"></code></pre>
+</div>
+<form id="form-POSTadmin-users" data-method="POST" data-path="admin/users" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTadmin-users', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTadmin-users" onclick="tryItOut('POSTadmin-users');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTadmin-users" onclick="cancelTryOut('POSTadmin-users');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTadmin-users" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>admin/users</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>firstName</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="firstName" data-endpoint="POSTadmin-users" data-component="body" required  hidden>
+<br>
+Firstname of user.</p>
+<p>
+<b><code>lastName</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="lastName" data-endpoint="POSTadmin-users" data-component="body" required  hidden>
+<br>
+Surname/Last name of user.</p>
+<p>
+<b><code>email</code></b>&nbsp;&nbsp;<small>email</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTadmin-users" data-component="body" required  hidden>
+<br>
+Email address of user.</p>
+<p>
+<b><code>phone</code></b>&nbsp;&nbsp;<small>numeric</small>     <i>optional</i> &nbsp;
+<input type="text" name="phone" data-endpoint="POSTadmin-users" data-component="body"  hidden>
+<br>
+Phone number of user.</p>
+<p>
+<b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="password" data-endpoint="POSTadmin-users" data-component="body" required  hidden>
+<br>
+min:6 Account password.</p>
+<p>
+<b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="password_confirmation" data-endpoint="POSTadmin-users" data-component="body" required  hidden>
+<br>
+min:6 Retype account password.</p>
+
+</form>
+<h2>GET User</h2>
+<p>Get information on a single user</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/admin/users/praesentium" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/users/praesentium"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETadmin-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETadmin-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETadmin-users--user-"></code></pre>
+</div>
+<div id="execution-error-GETadmin-users--user-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETadmin-users--user-"></code></pre>
+</div>
+<form id="form-GETadmin-users--user-" data-method="GET" data-path="admin/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin-users--user-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin-users--user-" onclick="tryItOut('GETadmin-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin-users--user-" onclick="cancelTryOut('GETadmin-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin-users--user-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>admin/users/{user}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user" data-endpoint="GETadmin-users--user-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>PUT User</h2>
+<p>Update user data. This should be a POST request</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://api.sunvest.test/admin/users/adipisci" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"firstName":"\"Damilare\"","lastName":"\"Abi\"","phone":"\"Abi\"","update_type":"\"profile\"","_method":"\"PUT\"","current_password":"\"123456\"","password":"\"123456\"","password_confirmation":"\"123456\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/users/adipisci"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "firstName": "\"Damilare\"",
+    "lastName": "\"Abi\"",
+    "phone": "\"Abi\"",
+    "update_type": "\"profile\"",
+    "_method": "\"PUT\"",
+    "current_password": "\"123456\"",
+    "password": "\"123456\"",
+    "password_confirmation": "\"123456\""
+}
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-PUTadmin-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTadmin-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTadmin-users--user-"></code></pre>
+</div>
+<div id="execution-error-PUTadmin-users--user-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTadmin-users--user-"></code></pre>
+</div>
+<form id="form-PUTadmin-users--user-" data-method="PUT" data-path="admin/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTadmin-users--user-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTadmin-users--user-" onclick="tryItOut('PUTadmin-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTadmin-users--user-" onclick="cancelTryOut('PUTadmin-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTadmin-users--user-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-darkblue">PUT</small>
+ <b><code>admin/users/{user}</code></b>
+</p>
+<p>
+<small class="badge badge-purple">PATCH</small>
+ <b><code>admin/users/{user}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user" data-endpoint="PUTadmin-users--user-" data-component="url" required  hidden>
+<br>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>firstName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="firstName" data-endpoint="PUTadmin-users--user-" data-component="body"  hidden>
+<br>
+Firstname of user.</p>
+<p>
+<b><code>lastName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="lastName" data-endpoint="PUTadmin-users--user-" data-component="body"  hidden>
+<br>
+Surname/Last name of user.</p>
+<p>
+<b><code>phone</code></b>&nbsp;&nbsp;<small>numeric</small>     <i>optional</i> &nbsp;
+<input type="text" name="phone" data-endpoint="PUTadmin-users--user-" data-component="body"  hidden>
+<br>
+Phone number of user.</p>
+<p>
+<b><code>update_type</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="update_type" data-endpoint="PUTadmin-users--user-" data-component="body" required  hidden>
+<br>
+in:profile,password What type of update whether for profile data or password.</p>
+<p>
+<b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="_method" data-endpoint="PUTadmin-users--user-" data-component="body" required  hidden>
+<br>
+This will tell backend to see it as an update request.</p>
+<p>
+<b><code>current_password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="current_password" data-endpoint="PUTadmin-users--user-" data-component="body"  hidden>
+<br>
+min:6 Account password.</p>
+<p>
+<b><code>password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="password" data-endpoint="PUTadmin-users--user-" data-component="body"  hidden>
+<br>
+min:6 Account password.</p>
+<p>
+<b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="password_confirmation" data-endpoint="PUTadmin-users--user-" data-component="body"  hidden>
+<br>
+min:6 Retype account password.</p>
+
+</form>
+<h2>DELETE User</h2>
+<p>Soft delete a user. This should be a POST request</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://api.sunvest.test/admin/users/sapiente" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"_method":"\"DELETE\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/admin/users/sapiente"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "_method": "\"DELETE\""
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-DELETEadmin-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEadmin-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEadmin-users--user-"></code></pre>
+</div>
+<div id="execution-error-DELETEadmin-users--user-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEadmin-users--user-"></code></pre>
+</div>
+<form id="form-DELETEadmin-users--user-" data-method="DELETE" data-path="admin/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEadmin-users--user-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEadmin-users--user-" onclick="tryItOut('DELETEadmin-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEadmin-users--user-" onclick="cancelTryOut('DELETEadmin-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEadmin-users--user-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>admin/users/{user}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user" data-endpoint="DELETEadmin-users--user-" data-component="url" required  hidden>
+<br>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="_method" data-endpoint="DELETEadmin-users--user-" data-component="body" required  hidden>
+<br>
+This will tell backend that its actually a delete request.</p>
+
+</form><h1>Users</h1>
+<p>Manage user</p>
+<h2>GET Users</h2>
+<p>List all users with extra details</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/user/users?page=3" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/users"
+);
+
+let params = {
+    "page": "3",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETuser-users" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETuser-users"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETuser-users"></code></pre>
+</div>
+<div id="execution-error-GETuser-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETuser-users"></code></pre>
+</div>
+<form id="form-GETuser-users" data-method="GET" data-path="user/users" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-users', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-users" onclick="tryItOut('GETuser-users');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-users" onclick="cancelTryOut('GETuser-users');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-users" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>user/users</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="page" data-endpoint="GETuser-users" data-component="query"  hidden>
+<br>
+Which page to show.</p>
+</form>
+<h2>user/users</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://api.sunvest.test/user/users" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/users"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-POSTuser-users" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTuser-users"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTuser-users"></code></pre>
+</div>
+<div id="execution-error-POSTuser-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTuser-users"></code></pre>
+</div>
+<form id="form-POSTuser-users" data-method="POST" data-path="user/users" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTuser-users', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTuser-users" onclick="tryItOut('POSTuser-users');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTuser-users" onclick="cancelTryOut('POSTuser-users');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTuser-users" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>user/users</code></b>
+</p>
+</form>
+<h2>GET User</h2>
+<p>Get information on a single user</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://api.sunvest.test/user/users/in" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/users/in"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETuser-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETuser-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETuser-users--user-"></code></pre>
+</div>
+<div id="execution-error-GETuser-users--user-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETuser-users--user-"></code></pre>
+</div>
+<form id="form-GETuser-users--user-" data-method="GET" data-path="user/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-users--user-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-users--user-" onclick="tryItOut('GETuser-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-users--user-" onclick="cancelTryOut('GETuser-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-users--user-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>user/users/{user}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user" data-endpoint="GETuser-users--user-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+<h2>PUT User</h2>
+<p>Update user data. This should be a POST request</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://api.sunvest.test/user/users/voluptate" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"firstName":"\"Damilare\"","lastName":"\"Abi\"","phone":"\"Abi\"","update_type":"\"profile\"","_method":"\"PUT\"","current_password":"\"123456\"","password":"\"123456\"","password_confirmation":"\"123456\""}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/users/voluptate"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "firstName": "\"Damilare\"",
+    "lastName": "\"Abi\"",
+    "phone": "\"Abi\"",
+    "update_type": "\"profile\"",
+    "_method": "\"PUT\"",
+    "current_password": "\"123456\"",
+    "password": "\"123456\"",
+    "password_confirmation": "\"123456\""
+}
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-PUTuser-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTuser-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTuser-users--user-"></code></pre>
+</div>
+<div id="execution-error-PUTuser-users--user-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTuser-users--user-"></code></pre>
+</div>
+<form id="form-PUTuser-users--user-" data-method="PUT" data-path="user/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTuser-users--user-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTuser-users--user-" onclick="tryItOut('PUTuser-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTuser-users--user-" onclick="cancelTryOut('PUTuser-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTuser-users--user-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-darkblue">PUT</small>
+ <b><code>user/users/{user}</code></b>
+</p>
+<p>
+<small class="badge badge-purple">PATCH</small>
+ <b><code>user/users/{user}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user" data-endpoint="PUTuser-users--user-" data-component="url" required  hidden>
+<br>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>firstName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="firstName" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<br>
+Firstname of user.</p>
+<p>
+<b><code>lastName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="lastName" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<br>
+Surname/Last name of user.</p>
+<p>
+<b><code>phone</code></b>&nbsp;&nbsp;<small>numeric</small>     <i>optional</i> &nbsp;
+<input type="text" name="phone" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<br>
+Phone number of user.</p>
+<p>
+<b><code>update_type</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="update_type" data-endpoint="PUTuser-users--user-" data-component="body" required  hidden>
+<br>
+in:profile,password What type of update whether for profile data or password.</p>
+<p>
+<b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="_method" data-endpoint="PUTuser-users--user-" data-component="body" required  hidden>
+<br>
+This will tell backend to see it as an update request.</p>
+<p>
+<b><code>current_password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="current_password" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<br>
+min:6 Account password.</p>
+<p>
+<b><code>password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="password" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<br>
+min:6 Account password.</p>
+<p>
+<b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="password_confirmation" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<br>
+min:6 Retype account password.</p>
+
+</form>
+<h2>user/users/{user}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://api.sunvest.test/user/users/eveniet" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://api.sunvest.test/user/users/eveniet"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-DELETEuser-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEuser-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEuser-users--user-"></code></pre>
+</div>
+<div id="execution-error-DELETEuser-users--user-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEuser-users--user-"></code></pre>
+</div>
+<form id="form-DELETEuser-users--user-" data-method="DELETE" data-path="user/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEuser-users--user-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEuser-users--user-" onclick="tryItOut('DELETEuser-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEuser-users--user-" onclick="cancelTryOut('DELETEuser-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEuser-users--user-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>user/users/{user}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user" data-endpoint="DELETEuser-users--user-" data-component="url" required  hidden>
+<br>
+</p>
+</form>
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var languages = ["bash","javascript"];
+        setupLanguages(languages);
+    });
+</script>
+</body>
+</html>

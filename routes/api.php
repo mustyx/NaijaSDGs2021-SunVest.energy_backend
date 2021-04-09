@@ -1,7 +1,17 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\Usercontroller;
+use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\InvestmentController;
+
+use App\Http\Controllers\Api\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Api\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Api\Admin\ProjectController as AdminProjectController;
+use App\Http\Controllers\Api\Admin\InvestmentController as AdminInvestmentController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -57,8 +67,7 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 
 //Main app routes
 Route::middleware('auth:api')->group(function (){
-    Route::get('/user',[Usercontroller::class,'index']);
-
+//    Route::get('/user',[Usercontroller::class,'index']);
 //    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::post('/logout', [AuthController::class, 'logout']);
 
@@ -113,8 +122,17 @@ Route::middleware('auth:api')->group(function (){
         ->middleware(['auth']);
 */
 
-    Route::prefix('admin')->name('admin.')->group(function (){
+    Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function (){
+        Route::apiResource('/',AdminDashboardController::class);
+        Route::apiResource('users',AdminUserController::class);
+        Route::apiResource('projects',AdminProjectController::class);
+        Route::apiResource('investments',AdminInvestmentController::class);
+    });
 
+    Route::prefix('user')->name('user.')->middleware('role:admin')->group(function (){
+        Route::apiResource('users',UserController::class);
+        Route::apiResource('projects',ProjectController::class);
+        Route::apiResource('investments',InvestmentController::class);
     });
 
     Route::name('user')->group(function (){

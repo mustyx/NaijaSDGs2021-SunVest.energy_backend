@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 /**
- * @group Investments
+ * @group Dashboard - ADMIN
  *
- * Manage investments
+ * Manage dashboard
  */
 
-class InvestmentController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.

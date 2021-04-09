@@ -5,6 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+/**
+ * @group Projects
+ *
+ * Manage projects user has investments in
+ */
+
 class ProjectController extends Controller
 {
     /**
