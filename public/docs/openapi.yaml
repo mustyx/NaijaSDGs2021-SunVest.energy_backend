@@ -9,8 +9,8 @@ servers:
 paths:
     /register:
         post:
-            summary: ''
-            description: ''
+            summary: 'POST Register'
+            description: 'Create a new user'
             parameters:
                 -
                     in: header
@@ -26,14 +26,63 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: failed
+                                    validation_errors: { email: ['The email must be a valid email address.'], phone: ['The phone must be a number.'] }
+                                properties:
+                                    status: { type: string, example: failed }
+                                    validation_errors: { type: object, example: { email: ['The email must be a valid email address.'], phone: ['The phone must be a number.'] } }
             tags:
                 - Auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                firstName:
+                                    type: string
+                                    description: 'Firstname of user.'
+                                    example: '"Damilare"'
+                                lastName:
+                                    type: string
+                                    description: 'Surname/Last name of user.'
+                                    example: '"Abi"'
+                                email:
+                                    type: email
+                                    description: 'Email address of user.'
+                                    example: '"test@test.com"'
+                                phone:
+                                    type: numeric
+                                    description: 'Phone number of user.'
+                                    example: '"Abi"'
+                                password:
+                                    type: string
+                                    description: 'min:6 Account password.'
+                                    example: '"123456"'
+                                password_confirmation:
+                                    type: string
+                                    description: 'min:6 Retype account password.'
+                                    example: '"123456"'
+                            required:
+                                - firstName
+                                - lastName
+                                - email
+                                - password
+                                - password_confirmation
             security: []
     /login:
         post:
-            summary: ''
-            description: ''
+            summary: 'POST Login'
+            description: 'Log a user into their account'
             parameters:
                 -
                     in: header
@@ -49,37 +98,46 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                422:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Error
+                                    message: 'Invalid credentials'
+                                    data: { email: ['The email must be a valid email address.'] }
+                                properties:
+                                    status: { type: string, example: Error }
+                                    message: { type: string, example: 'Invalid credentials' }
+                                    data: { type: object, example: { email: ['The email must be a valid email address.'] } }
             tags:
                 - Auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: email
+                                    description: 'Email address of user.'
+                                    example: '"test@test.com"'
+                                password:
+                                    type: string
+                                    description: 'min:6 Account password.'
+                                    example: '"123456"'
+                            required:
+                                - email
+                                - password
             security: []
-    /logout:
+    /dashboard/logout:
         post:
-            summary: ''
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - Auth
-            security: []
-    /admin:
-        get:
-            summary: 'Display a listing of the resource.'
-            description: ''
+            summary: 'POST Logout'
+            description: 'Logout a user from their account'
             parameters:
                 -
                     in: header
@@ -107,127 +165,11 @@ paths:
                                 properties:
                                     message: { type: string, example: Unauthenticated. }
             tags:
-                - 'Dashboard - ADMIN'
+                - Auth
             security: []
-        post:
-            summary: 'Store a newly created resource in storage.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - 'Dashboard - ADMIN'
-            security: []
-    '/admin/{}':
+    /dashboard:
         get:
-            summary: 'Display the specified resource.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses:
-                404:
-                    description: ''
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                example:
-                                    message: ''
-                                    exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-                                    file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php'
-                                    line: 43
-                                    trace: [{ file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php', line: 162, function: handleMatchedRoute, class: Illuminate\Routing\AbstractRouteCollection, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 647, function: match, class: Illuminate\Routing\RouteCollection, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 636, function: findRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 625, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 86, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 37, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 324, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 305, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 236, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 172, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 127, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 119, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 36, function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 93, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 611, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\symfony\console\Command\Command.php', line: 256, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\symfony\console\Application.php', line: 971, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\symfony\console\Application.php', line: 290, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\symfony\console\Application.php', line: 166, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 92, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }]
-                                properties:
-                                    message: { type: string, example: '' }
-                                    exception: { type: string, example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException }
-                                    file: { type: string, example: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php' }
-                                    line: { type: integer, example: 43 }
-                                    trace: { type: array, example: [{ file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php', line: 162, function: handleMatchedRoute, class: Illuminate\Routing\AbstractRouteCollection, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 647, function: match, class: Illuminate\Routing\RouteCollection, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 636, function: findRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 625, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 86, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 37, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 324, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 305, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 236, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 172, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 127, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 119, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 36, function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 93, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 611, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\symfony\console\Command\Command.php', line: 256, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\symfony\console\Application.php', line: 971, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\symfony\console\Application.php', line: 290, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\symfony\console\Application.php', line: 166, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 92, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\Users\OluDre\work\appyclan\projects\sunvest\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }], items: { type: object } }
-            tags:
-                - 'Dashboard - ADMIN'
-            security: []
-        put:
-            summary: 'Update the specified resource in storage.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - 'Dashboard - ADMIN'
-            security: []
-        delete:
-            summary: 'Remove the specified resource from storage.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - 'Dashboard - ADMIN'
-            security: []
-        parameters:
-            -
-                in: path
-                name: ''
-                description: ''
-                example: est
-                required: true
-                schema:
-                    type: string
-    /:
-        get:
-            summary: ''
+            summary: 'GET Dashboard data'
             description: ''
             parameters:
                 -
@@ -246,21 +188,25 @@ paths:
                         type: string
             responses:
                 200:
-                    description: ''
+                    description: '200'
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    success: true
+                                    status: Success
+                                    message: null
+                                    data: { projects: 0, investments: 0, cells_invested_in: 0, amount_invested: 0 }
                                 properties:
-                                    success: { type: boolean, example: true }
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: null }
+                                    data: { type: object, example: { projects: 0, investments: 0, cells_invested_in: 0, amount_invested: 0 } }
             tags:
-                - Endpoints
+                - Dashboard
             security: []
-    /me:
+    /dashboard/admin:
         get:
-            summary: ''
+            summary: 'GET Dashboard data'
             description: ''
             parameters:
                 -
@@ -279,17 +225,21 @@ paths:
                         type: string
             responses:
                 200:
-                    description: ''
+                    description: '200'
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    success: api.sunvest.test
+                                    status: Success
+                                    message: null
+                                    data: { projects: 4, investments: 0, total_cells: '600', taken_cells: 0, amount_invested: 0 }
                                 properties:
-                                    success: { type: string, example: api.sunvest.test }
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: null }
+                                    data: { type: object, example: { projects: 4, investments: 0, total_cells: '600', taken_cells: 0, amount_invested: 0 } }
             tags:
-                - Endpoints
+                - 'Dashboard - ADMIN'
             security: []
     '/email/verify/{id}/{hash}':
         get:
@@ -337,7 +287,7 @@ paths:
                 in: path
                 name: id
                 description: ''
-                example: vitae
+                example: voluptatem
                 required: true
                 schema:
                     type: string
@@ -345,7 +295,7 @@ paths:
                 in: path
                 name: hash
                 description: ''
-                example: aut
+                example: quia
                 required: true
                 schema:
                     type: string
@@ -368,15 +318,169 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                404:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Error
+                                    message: 'No such user'
+                                    data: null
+                                properties:
+                                    status: { type: string, example: Error }
+                                    message: { type: string, example: 'No such user' }
+                                    data: { type: string, example: null }
             tags:
                 - Endpoints
             security: []
-    /user/investments:
+    /:
         get:
-            summary: 'Display a listing of the resource.'
-            description: ''
+            summary: 'GET Home'
+            description: 'List 8 random projects'
             parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: null
+                                    data: [{ id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: '12', cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' }, { id: 2, name: '10KVA Rooftop Mini Grid', slug: 10kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-01T14:25:12.000000Z', end_date: '2021-05-20T14:25:12.000000Z', ad_due_date: '2021-04-28T14:25:12.000000Z', is_active: null, created_at: '2021-04-09T14:25:12.000000Z' }]
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: null }
+                                    data: { type: array, example: [{ id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: '12', cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' }, { id: 2, name: '10KVA Rooftop Mini Grid', slug: 10kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-01T14:25:12.000000Z', end_date: '2021-05-20T14:25:12.000000Z', ad_due_date: '2021-04-28T14:25:12.000000Z', is_active: null, created_at: '2021-04-09T14:25:12.000000Z' }], items: { type: object } }
+            tags:
+                - Home
+            security: []
+    /marketplace:
+        get:
+            summary: 'GET Marketplace'
+            description: 'List projects available for investing'
+            parameters:
+                -
+                    in: query
+                    name: page
+                    description: 'Which page to show.'
+                    example: 3
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Which page to show.'
+                        example: 3
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: null
+                                    data: [{ id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: '12', cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' }, { id: 2, name: '10KVA Rooftop Mini Grid', slug: 10kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-01T14:25:12.000000Z', end_date: '2021-05-20T14:25:12.000000Z', ad_due_date: '2021-04-28T14:25:12.000000Z', is_active: null, created_at: '2021-04-09T14:25:12.000000Z' }]
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: null }
+                                    data: { type: array, example: [{ id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: '12', cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' }, { id: 2, name: '10KVA Rooftop Mini Grid', slug: 10kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-01T14:25:12.000000Z', end_date: '2021-05-20T14:25:12.000000Z', ad_due_date: '2021-04-28T14:25:12.000000Z', is_active: null, created_at: '2021-04-09T14:25:12.000000Z' }], items: { type: object } }
+            tags:
+                - Home
+            security: []
+    '/marketplace/{project}':
+        get:
+            summary: 'GET Single Project'
+            description: 'Get information on a single project'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: null
+                                    data: { id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: '12', cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' }
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: null }
+                                    data: { type: object, example: { id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: '12', cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' } }
+            tags:
+                - Home
+            security: []
+        parameters:
+            -
+                in: path
+                name: project
+                description: ''
+                example: debitis
+                required: true
+                schema:
+                    type: string
+    /dashboard/investments:
+        get:
+            summary: 'GET Investments'
+            description: 'List all investments'
+            parameters:
+                -
+                    in: query
+                    name: page
+                    description: 'Which page to show.'
+                    example: 3
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Which page to show.'
+                        example: 3
                 -
                     in: header
                     name: Content-Type
@@ -406,8 +510,8 @@ paths:
                 - Investments
             security: []
         post:
-            summary: 'Store a newly created resource in storage.'
-            description: ''
+            summary: 'POST Investment'
+            description: 'Create a new investment'
             parameters:
                 -
                     in: header
@@ -423,14 +527,47 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - Investments
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                project_id:
+                                    type: string
+                                    description: 'Id/slug of project item.'
+                                    example: quasi
+                                cells:
+                                    type: integer
+                                    description: 'Total number of cells the user wishes to invest in.'
+                                    example: 10
+                                user_id:
+                                    type: string
+                                    description: 'Id/username of user.'
+                                    example: '5,"dre-1"'
+                            required:
+                                - project_id
+                                - cells
+                                - user_id
             security: []
-    '/user/investments/{investment}':
+    '/dashboard/investments/{investment}':
         get:
-            summary: 'Display the specified resource.'
-            description: ''
+            summary: 'GET Single Investment'
+            description: 'Get information on a single investment'
             parameters:
                 -
                     in: header
@@ -460,60 +597,16 @@ paths:
             tags:
                 - Investments
             security: []
-        put:
-            summary: 'Update the specified resource in storage.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - Investments
-            security: []
-        delete:
-            summary: 'Remove the specified resource from storage.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - Investments
-            security: []
         parameters:
             -
                 in: path
                 name: investment
                 description: ''
-                example: perferendis
+                example: sint
                 required: true
                 schema:
                     type: string
-    /admin/investments:
+    /dashboard/admin/investments:
         get:
             summary: 'GET Investments'
             description: 'List all investments'
@@ -574,7 +667,21 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: 'Investment successfully created.'
+                                    data: null
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: 'Investment successfully created.' }
+                                    data: { type: string, example: null }
             tags:
                 - 'Investments - ADMIN'
             requestBody:
@@ -591,7 +698,7 @@ paths:
                                 project_id:
                                     type: string
                                     description: 'Id/slug of project item.'
-                                    example: aut
+                                    example: quia
                                 cells:
                                     type: integer
                                     description: 'Total number of cells the user wishes to invest in.'
@@ -601,7 +708,7 @@ paths:
                                 - project_id
                                 - cells
             security: []
-    '/admin/investments/{investment}':
+    '/dashboard/admin/investments/{investment}':
         get:
             summary: 'GET Single Investment'
             description: 'Get information on a single investment'
@@ -621,16 +728,20 @@ paths:
                     schema:
                         type: string
             responses:
-                401:
-                    description: ''
+                200:
+                    description: '200'
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: Unauthenticated.
+                                    status: Success
+                                    message: null
+                                    data: { id: 1, user_id: 2, project_id: 1, cells: 15, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '1970-05-22T00:00:00.000000Z', due_date: '1970-05-22T00:00:00.000000Z', created_at: '2021-04-09T14:39:32.000000Z', project: { id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: '15', cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' } }
                                 properties:
-                                    message: { type: string, example: Unauthenticated. }
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: null }
+                                    data: { type: object, example: { id: 1, user_id: 2, project_id: 1, cells: 15, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '1970-05-22T00:00:00.000000Z', due_date: '1970-05-22T00:00:00.000000Z', created_at: '2021-04-09T14:39:32.000000Z', project: { id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: '15', cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' } } }
             tags:
                 - 'Investments - ADMIN'
             security: []
@@ -652,7 +763,21 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: 'Investment successfully updated.'
+                                    data: { id: 1, user_id: 3, project_id: 1, cells: 12, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '1970-05-22T00:00:00.000000Z', due_date: '1970-05-22T00:00:00.000000Z', created_at: '2021-04-09T14:39:32.000000Z' }
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: 'Investment successfully updated.' }
+                                    data: { type: object, example: { id: 1, user_id: 3, project_id: 1, cells: 12, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '1970-05-22T00:00:00.000000Z', due_date: '1970-05-22T00:00:00.000000Z', created_at: '2021-04-09T14:39:32.000000Z' } }
             tags:
                 - 'Investments - ADMIN'
             requestBody:
@@ -669,7 +794,7 @@ paths:
                                 project_id:
                                     type: string
                                     description: 'Id/slug of project item.'
-                                    example: omnis
+                                    example: molestiae
                                 cells:
                                     type: integer
                                     description: 'Total number of cells the user wishes to invest in.'
@@ -702,7 +827,17 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Investments - ADMIN'
             requestBody:
@@ -724,15 +859,35 @@ paths:
                 in: path
                 name: investment
                 description: ''
-                example: corporis
+                example: dolorem
                 required: true
                 schema:
                     type: string
-    /user/projects:
+    /payment/callback/rave:
         get:
-            summary: 'Display a listing of the resource.'
-            description: ''
+            summary: 'GET Payments callback'
+            description: 'List all investments'
             parameters:
+                -
+                    in: query
+                    name: pid
+                    description: 'Payment ID.'
+                    example: '3'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Payment ID.'
+                        example: '3'
+                -
+                    in: query
+                    name: transaction_id
+                    description: 'Payment ID.'
+                    example: FW_ys64532yw7
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Payment ID.'
+                        example: FW_ys64532yw7
                 -
                     in: header
                     name: Content-Type
@@ -748,128 +903,24 @@ paths:
                     schema:
                         type: string
             responses:
-                401:
+                404:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: Unauthenticated.
+                                    status: Error
+                                    message: 'Payment record not found.'
+                                    data: null
                                 properties:
-                                    message: { type: string, example: Unauthenticated. }
+                                    status: { type: string, example: Error }
+                                    message: { type: string, example: 'Payment record not found.' }
+                                    data: { type: string, example: null }
             tags:
-                - Projects
+                - Payments
             security: []
-        post:
-            summary: 'Store a newly created resource in storage.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - Projects
-            security: []
-    '/user/projects/{project}':
-        get:
-            summary: 'Display the specified resource.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses:
-                401:
-                    description: ''
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                example:
-                                    message: Unauthenticated.
-                                properties:
-                                    message: { type: string, example: Unauthenticated. }
-            tags:
-                - Projects
-            security: []
-        put:
-            summary: 'Update the specified resource in storage.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - Projects
-            security: []
-        delete:
-            summary: 'Remove the specified resource from storage.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - Projects
-            security: []
-        parameters:
-            -
-                in: path
-                name: project
-                description: ''
-                example: ullam
-                required: true
-                schema:
-                    type: string
-    /admin/projects:
+    /dashboard/projects:
         get:
             summary: 'GET Projects'
             description: 'List all projects'
@@ -910,89 +961,9 @@ paths:
                                 properties:
                                     message: { type: string, example: Unauthenticated. }
             tags:
-                - 'Projects - ADMIN'
+                - Projects
             security: []
-        post:
-            summary: 'POST Project'
-            description: 'Create a new project'
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - 'Projects - ADMIN'
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            properties:
-                                name:
-                                    type: string
-                                    description: 'Name of project.'
-                                    example: '"5KVA Solar Mini-Grid"'
-                                description:
-                                    type: string
-                                    description: 'Detailed description of projects.'
-                                    example: qui
-                                total_cells:
-                                    type: integer
-                                    description: 'Total number of cells the project has.'
-                                    example: 50
-                                cost_per_cell:
-                                    type: integer
-                                    description: 'Investment cost per cell.'
-                                    example: 5000
-                                profit:
-                                    type: numeric
-                                    description: 'Expected percentage profit after maturity'
-                                    example: '10.5'
-                                maturity_period:
-                                    type: integer
-                                    description: 'How long it will take for investment to mature in weeks.'
-                                    example: 20
-                                start_date:
-                                    type: 'date_format:d/m/Y'
-                                    description: 'When project development will start.'
-                                    example: '"25/04/2021"'
-                                end_date:
-                                    type: string
-                                    description: 'The value must be a valid date in the format d/m/Y.'
-                                    example: 09/04/2021
-                                ad_due_date:
-                                    type: 'date_format:d/m/Y'
-                                    description: 'When this investment ad will expire.'
-                                    example: '"20/04/2021"'
-                                due_date:
-                                    type: 'date_format:d/m/Y'
-                                    description: 'When project development will end.'
-                                    example: '"25/05/2021"'
-                            required:
-                                - name
-                                - description
-                                - total_cells
-                                - cost_per_cell
-                                - profit
-                                - maturity_period
-                                - start_date
-                                - end_date
-                                - ad_due_date
-                                - due_date
-            security: []
-    '/admin/projects/{project}':
+    '/dashboard/projects/{project}':
         get:
             summary: 'GET Single Project'
             description: 'Get information on a single project'
@@ -1023,11 +994,67 @@ paths:
                                 properties:
                                     message: { type: string, example: Unauthenticated. }
             tags:
+                - Projects
+            security: []
+        parameters:
+            -
+                in: path
+                name: project
+                description: ''
+                example: et
+                required: true
+                schema:
+                    type: string
+    /dashboard/admin/projects:
+        get:
+            summary: 'GET Projects'
+            description: 'List all projects'
+            parameters:
+                -
+                    in: query
+                    name: page
+                    description: 'Which page to show.'
+                    example: 3
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Which page to show.'
+                        example: 3
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: null
+                                    data: [{ id: 1, name: '5KVA Rooftop Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-01T06:44:50.000000Z', end_date: '2021-05-20T06:44:50.000000Z', ad_due_date: '2021-04-28T06:44:50.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' }]
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: null }
+                                    data: { type: array, example: [{ id: 1, name: '5KVA Rooftop Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-01T06:44:50.000000Z', end_date: '2021-05-20T06:44:50.000000Z', ad_due_date: '2021-04-28T06:44:50.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' }], items: { type: object } }
+            tags:
                 - 'Projects - ADMIN'
             security: []
-        put:
-            summary: 'PUT Project'
-            description: 'Update project data. This should be a POST request'
+        post:
+            summary: 'POST Project'
+            description: 'Create a new project'
             parameters:
                 -
                     in: header
@@ -1043,7 +1070,21 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: 'Project successfully created.'
+                                    data: null
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: 'Project successfully created.' }
+                                    data: { type: string, example: null }
             tags:
                 - 'Projects - ADMIN'
             requestBody:
@@ -1060,7 +1101,7 @@ paths:
                                 description:
                                     type: string
                                     description: 'Detailed description of projects.'
-                                    example: est
+                                    example: eius
                                 total_cells:
                                     type: integer
                                     description: 'Total number of cells the project has.'
@@ -1084,7 +1125,138 @@ paths:
                                 end_date:
                                     type: string
                                     description: 'The value must be a valid date in the format d/m/Y.'
-                                    example: 09/04/2021
+                                    example: 12/04/2021
+                                ad_due_date:
+                                    type: 'date_format:d/m/Y'
+                                    description: 'When this investment ad will expire.'
+                                    example: '"20/04/2021"'
+                                due_date:
+                                    type: 'date_format:d/m/Y'
+                                    description: 'When project development will end.'
+                                    example: '"25/05/2021"'
+                            required:
+                                - name
+                                - description
+                                - total_cells
+                                - cost_per_cell
+                                - profit
+                                - maturity_period
+                                - start_date
+                                - end_date
+                                - ad_due_date
+                                - due_date
+            security: []
+    '/dashboard/admin/projects/{project}':
+        get:
+            summary: 'GET Single Project'
+            description: 'Get information on a single project'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: null
+                                    data: { id: 1, name: '5KVA Rooftop Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-01T06:44:50.000000Z', end_date: '2021-05-20T06:44:50.000000Z', ad_due_date: '2021-04-28T06:44:50.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z', investments: [] }
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: null }
+                                    data: { type: object, example: { id: 1, name: '5KVA Rooftop Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-01T06:44:50.000000Z', end_date: '2021-05-20T06:44:50.000000Z', ad_due_date: '2021-04-28T06:44:50.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z', investments: [] } }
+            tags:
+                - 'Projects - ADMIN'
+            security: []
+        put:
+            summary: 'PUT Project'
+            description: 'Update project data. This should be a POST request'
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    status: Success
+                                    message: 'Project successfully updated.'
+                                    data: { id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' }
+                                properties:
+                                    status: { type: string, example: Success }
+                                    message: { type: string, example: 'Project successfully updated.' }
+                                    data: { type: object, example: { id: 1, name: '5KVA Rooftop Solar Mini Grid', slug: 5kva-rooftop-mini-grid, description: "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.", total_cells: 120, taken_cells: 0, cost_per_cell: 23500, profit: 22, maturity_period: 20, start_date: '2021-05-05T14:30:52.000000Z', end_date: '2021-05-20T14:30:52.000000Z', ad_due_date: '2021-04-28T14:30:52.000000Z', is_active: null, created_at: '2021-04-06T06:44:50.000000Z' } }
+            tags:
+                - 'Projects - ADMIN'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                    description: 'Name of project.'
+                                    example: '"5KVA Solar Mini-Grid"'
+                                description:
+                                    type: string
+                                    description: 'Detailed description of projects.'
+                                    example: possimus
+                                total_cells:
+                                    type: integer
+                                    description: 'Total number of cells the project has.'
+                                    example: 50
+                                cost_per_cell:
+                                    type: integer
+                                    description: 'Investment cost per cell.'
+                                    example: 5000
+                                profit:
+                                    type: numeric
+                                    description: 'Expected percentage profit after maturity'
+                                    example: '10.5'
+                                maturity_period:
+                                    type: integer
+                                    description: 'How long it will take for investment to mature in weeks.'
+                                    example: 20
+                                start_date:
+                                    type: 'date_format:d/m/Y'
+                                    description: 'When project development will start.'
+                                    example: '"25/04/2021"'
+                                end_date:
+                                    type: string
+                                    description: 'The value must be a valid date in the format d/m/Y.'
+                                    example: 12/04/2021
                                 ad_due_date:
                                     type: 'date_format:d/m/Y'
                                     description: 'When this investment ad will expire.'
@@ -1128,7 +1300,17 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Projects - ADMIN'
             requestBody:
@@ -1150,13 +1332,13 @@ paths:
                 in: path
                 name: project
                 description: ''
-                example: voluptas
+                example: ipsam
                 required: true
                 schema:
                     type: string
-    /user/users:
+    /dashboard/users:
         get:
-            summary: 'GET Users'
+            summary: 'GET User'
             description: 'List all users with extra details'
             parameters:
                 -
@@ -1197,31 +1379,9 @@ paths:
             tags:
                 - Users
             security: []
-        post:
-            summary: ''
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - Users
-            security: []
-    '/user/users/{user}':
+    '/dashboard/users/{user}':
         get:
-            summary: 'GET User'
+            summary: 'GET Full User data'
             description: 'Get information on a single user'
             parameters:
                 -
@@ -1270,7 +1430,17 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - Users
             requestBody:
@@ -1316,38 +1486,16 @@ paths:
                                 - update_type
                                 - _method
             security: []
-        delete:
-            summary: ''
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Content-Type
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - Users
-            security: []
         parameters:
             -
                 in: path
                 name: user
                 description: ''
-                example: in
+                example: illum
                 required: true
                 schema:
                     type: string
-    /admin/users:
+    /dashboard/admin/users:
         get:
             summary: 'GET Users'
             description: 'List all users with extra details'
@@ -1408,7 +1556,17 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Users - ADMIN'
             requestBody:
@@ -1449,7 +1607,7 @@ paths:
                                 - password
                                 - password_confirmation
             security: []
-    '/admin/users/{user}':
+    '/dashboard/admin/users/{user}':
         get:
             summary: 'GET User'
             description: 'Get information on a single user'
@@ -1500,7 +1658,17 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Users - ADMIN'
             requestBody:
@@ -1564,7 +1732,17 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Users - ADMIN'
             requestBody:
@@ -1586,7 +1764,16 @@ paths:
                 in: path
                 name: user
                 description: ''
-                example: praesentium
+                example: sed
                 required: true
                 schema:
                     type: string
+components:
+    securitySchemes:
+        default:
+            type: http
+            scheme: bearer
+            description: ''
+security:
+    -
+        default: []

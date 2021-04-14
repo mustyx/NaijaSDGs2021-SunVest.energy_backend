@@ -52,6 +52,17 @@ class Project extends Model
         ];
     }
 
+    /**
+     * Scope a query to only include active projects.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
     public function creator(){
         return $this->belongsTo(User::class,'user_id');
     }

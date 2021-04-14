@@ -21,7 +21,7 @@ class UserController extends Controller
 {
     use ApiResponseTrait;
     /**
-     * GET Users
+     * GET User
      *
      * List all users with extra details
      * @queryParam page Which page to show. Example: 3
@@ -31,13 +31,16 @@ class UserController extends Controller
         return $this->success(new UserResource(auth()->user()));
     }
 
+    /**
+     * @hideFromAPIDocumentation
+     */
     public function store(Request $request)
     {
         //
     }
 
     /**
-     * GET User
+     * GET Full User data
      *
      * Get information on a single user
      * @param  string $id Example: username or id
@@ -85,6 +88,9 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @hideFromAPIDocumentation
+     */
     public function destroy($id)
     {
         //

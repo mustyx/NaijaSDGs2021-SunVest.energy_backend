@@ -2,24 +2,30 @@
 
 Manage investments
 
-## Display a listing of the resource.
+## GET Investments
 
 
-
+List all investments
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "https://api.sunvest.test/user/investments" \
+    -G "https://api.sunvest.test/dashboard/investments?page=3" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/user/investments"
+    "https://api.sunvest.test/dashboard/investments"
 );
+
+let params = {
+    "page": "3",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -41,45 +47,53 @@ fetch(url, {
     "message": "Unauthenticated."
 }
 ```
-<div id="execution-results-GETuser-investments" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETuser-investments"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETuser-investments"></code></pre>
+<div id="execution-results-GETdashboard-investments" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETdashboard-investments"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETdashboard-investments"></code></pre>
 </div>
-<div id="execution-error-GETuser-investments" hidden>
+<div id="execution-error-GETdashboard-investments" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETuser-investments"></code></pre>
+    <pre><code id="execution-error-message-GETdashboard-investments"></code></pre>
 </div>
-<form id="form-GETuser-investments" data-method="GET" data-path="user/investments" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-investments', this);">
+<form id="form-GETdashboard-investments" data-method="GET" data-path="dashboard/investments" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETdashboard-investments', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-investments" onclick="tryItOut('GETuser-investments');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-investments" onclick="cancelTryOut('GETuser-investments');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-investments" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETdashboard-investments" onclick="tryItOut('GETdashboard-investments');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETdashboard-investments" onclick="cancelTryOut('GETdashboard-investments');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETdashboard-investments" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
- <b><code>user/investments</code></b>
+ <b><code>dashboard/investments</code></b>
 </p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="page" data-endpoint="GETdashboard-investments" data-component="query"  hidden>
+<br>
+Which page to show.</p>
 </form>
 
 
-## Store a newly created resource in storage.
+## POST Investment
 
 
-
+Create a new investment
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "https://api.sunvest.test/user/investments" \
+    "https://api.sunvest.test/dashboard/investments" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"project_id":"quasi","cells":10,"user_id":"5,\"dre-1\""}'
+
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/user/investments"
+    "https://api.sunvest.test/dashboard/investments"
 );
 
 let headers = {
@@ -87,53 +101,83 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "project_id": "quasi",
+    "cells": 10,
+    "user_id": "5,\"dre-1\""
+}
 
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response => response.json());
 ```
 
 
-<div id="execution-results-POSTuser-investments" hidden>
-    <blockquote>Received response<span id="execution-response-status-POSTuser-investments"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-POSTuser-investments"></code></pre>
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-POSTdashboard-investments" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTdashboard-investments"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTdashboard-investments"></code></pre>
 </div>
-<div id="execution-error-POSTuser-investments" hidden>
+<div id="execution-error-POSTdashboard-investments" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTuser-investments"></code></pre>
+    <pre><code id="execution-error-message-POSTdashboard-investments"></code></pre>
 </div>
-<form id="form-POSTuser-investments" data-method="POST" data-path="user/investments" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTuser-investments', this);">
+<form id="form-POSTdashboard-investments" data-method="POST" data-path="dashboard/investments" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTdashboard-investments', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTuser-investments" onclick="tryItOut('POSTuser-investments');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTuser-investments" onclick="cancelTryOut('POSTuser-investments');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTuser-investments" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTdashboard-investments" onclick="tryItOut('POSTdashboard-investments');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTdashboard-investments" onclick="cancelTryOut('POSTdashboard-investments');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTdashboard-investments" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-black">POST</small>
- <b><code>user/investments</code></b>
+ <b><code>dashboard/investments</code></b>
 </p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>project_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="project_id" data-endpoint="POSTdashboard-investments" data-component="body" required  hidden>
+<br>
+Id/slug of project item.</p>
+<p>
+<b><code>cells</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="cells" data-endpoint="POSTdashboard-investments" data-component="body" required  hidden>
+<br>
+Total number of cells the user wishes to invest in.</p>
+<p>
+<b><code>user_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="user_id" data-endpoint="POSTdashboard-investments" data-component="body" required  hidden>
+<br>
+Id/username of user.</p>
+
 </form>
 
 
-## Display the specified resource.
+## GET Single Investment
 
 
-
+Get information on a single investment
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "https://api.sunvest.test/user/investments/perferendis" \
+    -G "https://api.sunvest.test/dashboard/investments/sint" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/user/investments/perferendis"
+    "https://api.sunvest.test/dashboard/investments/sint"
 );
 
 let headers = {
@@ -156,153 +200,29 @@ fetch(url, {
     "message": "Unauthenticated."
 }
 ```
-<div id="execution-results-GETuser-investments--investment-" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETuser-investments--investment-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETuser-investments--investment-"></code></pre>
+<div id="execution-results-GETdashboard-investments--investment-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETdashboard-investments--investment-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETdashboard-investments--investment-"></code></pre>
 </div>
-<div id="execution-error-GETuser-investments--investment-" hidden>
+<div id="execution-error-GETdashboard-investments--investment-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETuser-investments--investment-"></code></pre>
+    <pre><code id="execution-error-message-GETdashboard-investments--investment-"></code></pre>
 </div>
-<form id="form-GETuser-investments--investment-" data-method="GET" data-path="user/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-investments--investment-', this);">
+<form id="form-GETdashboard-investments--investment-" data-method="GET" data-path="dashboard/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETdashboard-investments--investment-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-investments--investment-" onclick="tryItOut('GETuser-investments--investment-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-investments--investment-" onclick="cancelTryOut('GETuser-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-investments--investment-" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETdashboard-investments--investment-" onclick="tryItOut('GETdashboard-investments--investment-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETdashboard-investments--investment-" onclick="cancelTryOut('GETdashboard-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETdashboard-investments--investment-" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
- <b><code>user/investments/{investment}</code></b>
+ <b><code>dashboard/investments/{investment}</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
 <b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="investment" data-endpoint="GETuser-investments--investment-" data-component="url" required  hidden>
-<br>
-</p>
-</form>
-
-
-## Update the specified resource in storage.
-
-
-
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "https://api.sunvest.test/user/investments/dolorum" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://api.sunvest.test/user/investments/dolorum"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "PUT",
-    headers,
-}).then(response => response.json());
-```
-
-
-<div id="execution-results-PUTuser-investments--investment-" hidden>
-    <blockquote>Received response<span id="execution-response-status-PUTuser-investments--investment-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-PUTuser-investments--investment-"></code></pre>
-</div>
-<div id="execution-error-PUTuser-investments--investment-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTuser-investments--investment-"></code></pre>
-</div>
-<form id="form-PUTuser-investments--investment-" data-method="PUT" data-path="user/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTuser-investments--investment-', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTuser-investments--investment-" onclick="tryItOut('PUTuser-investments--investment-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTuser-investments--investment-" onclick="cancelTryOut('PUTuser-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTuser-investments--investment-" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-darkblue">PUT</small>
- <b><code>user/investments/{investment}</code></b>
-</p>
-<p>
-<small class="badge badge-purple">PATCH</small>
- <b><code>user/investments/{investment}</code></b>
-</p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-<p>
-<b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="investment" data-endpoint="PUTuser-investments--investment-" data-component="url" required  hidden>
-<br>
-</p>
-</form>
-
-
-## Remove the specified resource from storage.
-
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://api.sunvest.test/user/investments/repellendus" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://api.sunvest.test/user/investments/repellendus"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response => response.json());
-```
-
-
-<div id="execution-results-DELETEuser-investments--investment-" hidden>
-    <blockquote>Received response<span id="execution-response-status-DELETEuser-investments--investment-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEuser-investments--investment-"></code></pre>
-</div>
-<div id="execution-error-DELETEuser-investments--investment-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEuser-investments--investment-"></code></pre>
-</div>
-<form id="form-DELETEuser-investments--investment-" data-method="DELETE" data-path="user/investments/{investment}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEuser-investments--investment-', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEuser-investments--investment-" onclick="tryItOut('DELETEuser-investments--investment-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEuser-investments--investment-" onclick="cancelTryOut('DELETEuser-investments--investment-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEuser-investments--investment-" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-red">DELETE</small>
- <b><code>user/investments/{investment}</code></b>
-</p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-<p>
-<b><code>investment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="investment" data-endpoint="DELETEuser-investments--investment-" data-component="url" required  hidden>
+<input type="text" name="investment" data-endpoint="GETdashboard-investments--investment-" data-component="url" required  hidden>
 <br>
 </p>
 </form>

@@ -16,11 +16,11 @@ class ProjectResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->username,
-            'slug' => $this->email,
+            'name' => $this->name,
+            'slug' => $this->slug,
             'description' => $this->description,
             'total_cells' => $this->total_cells,
-            'taken_cells' => $this->investments()->cells->sum(),
+            'taken_cells' => $this->investments()->sum('cells'),
             'cost_per_cell' => $this->cost_per_cell,
             'profit' => $this->profit,
             'maturity_period' => $this->maturity_period,
@@ -30,5 +30,10 @@ class ProjectResource extends JsonResource
             'is_active' => $this->is_active,
             'created_at' => $this->created_at,
         ];
+    }
+
+    public function withResponse($request, $response)
+    {
+        $response->setEncodingOptions(JSON_UNESCAPED_SLASHES);
     }
 }

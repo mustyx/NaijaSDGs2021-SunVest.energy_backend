@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Investment extends Model
+class Payment extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
     protected $fillable = [
-        'user_id','project_id','cells','cost_per_cell','profit','maturity_period','start_date','due_date'
+        'trxId','user_id','investment_id','amount','paid','payment_method','payment_gateway'
     ];
 
     /**
@@ -18,35 +19,27 @@ class Investment extends Model
      * @var array
      */
     protected $casts = [
-        'start_date' => 'datetime',
-        'due_date' => 'datetime',
+        'paid' => 'boolean',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
 
     /**
-     * Scope a query to only include paid investments.
+     * Scope paid payments.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopePaid($query)
     {
-        return $query->whereHas('payments', function ($q){
-            $q->where('paid',true);
-        });
+        return $query->where('paid',true);
     }
 
     public function user(){
         return $this->belongsTo(User::class);
     }
 
-    public function project(){
-        return $this->belongsTo(Project::class);
+    public function investment(){
+        return $this->belongsTo(Investment::class);
     }
-
-    public function payments(){
-        return $this->hasMany(Payment::class);
-    }
-
 }

@@ -24,7 +24,18 @@ use App\Traits\ApiResponseTrait;
 class AuthController extends Controller
 {
     use PasswordValidationRules,ApiResponseTrait;
-    // User Register
+
+    /**
+     * POST Register
+     *
+     * Create a new user
+     * @bodyParam  firstName string required Firstname of user. Example: "Damilare"
+     * @bodyParam  lastName string required Surname/Last name of user. Example: "Abi"
+     * @bodyParam  email email required Email address of user. Example: "test@test.com"
+     * @bodyParam  phone numeric Phone number of user. Example: "Abi"
+     * @bodyParam  password string required min:6 Account password. Example: "123456"
+     * @bodyParam  password_confirmation string required min:6 Retype account password. Example: "123456"
+     */
     public function register(Request $request) {
         $validator  =   Validator::make($request->all(), [
             'firstName' => ['required', 'string', 'max:255'],
@@ -67,7 +78,13 @@ class AuthController extends Controller
         return $this->error('Registration failed');
     }
 
-    // User login
+    /**
+     * POST Login
+     *
+     * Log a user into their account
+     * @bodyParam  email email required Email address of user. Example: "test@test.com"
+     * @bodyParam  password string required min:6 Account password. Example: "123456"
+     */
     public function login(Request $request) {
 
         $validator = Validator::make($request->all(), [
@@ -105,6 +122,11 @@ class AuthController extends Controller
         return $this->error('No user found',422);
     }
 
+    /**
+     * POST Logout
+     *
+     * Logout a user from their account
+     */
     public function logout(){
         $user = Auth::user();
 

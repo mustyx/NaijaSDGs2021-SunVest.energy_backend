@@ -2,7 +2,7 @@
 
 Manage user
 
-## GET Users
+## GET User
 
 
 List all users with extra details
@@ -11,14 +11,14 @@ List all users with extra details
 
 ```bash
 curl -X GET \
-    -G "https://api.sunvest.test/user/users?page=3" \
+    -G "https://api.sunvest.test/dashboard/users?page=3" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/user/users"
+    "https://api.sunvest.test/dashboard/users"
 );
 
 let params = {
@@ -47,89 +47,35 @@ fetch(url, {
     "message": "Unauthenticated."
 }
 ```
-<div id="execution-results-GETuser-users" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETuser-users"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETuser-users"></code></pre>
+<div id="execution-results-GETdashboard-users" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETdashboard-users"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETdashboard-users"></code></pre>
 </div>
-<div id="execution-error-GETuser-users" hidden>
+<div id="execution-error-GETdashboard-users" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETuser-users"></code></pre>
+    <pre><code id="execution-error-message-GETdashboard-users"></code></pre>
 </div>
-<form id="form-GETuser-users" data-method="GET" data-path="user/users" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-users', this);">
+<form id="form-GETdashboard-users" data-method="GET" data-path="dashboard/users" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETdashboard-users', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-users" onclick="tryItOut('GETuser-users');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-users" onclick="cancelTryOut('GETuser-users');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-users" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETdashboard-users" onclick="tryItOut('GETdashboard-users');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETdashboard-users" onclick="cancelTryOut('GETdashboard-users');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETdashboard-users" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
- <b><code>user/users</code></b>
+ <b><code>dashboard/users</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p>
 <b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="page" data-endpoint="GETuser-users" data-component="query"  hidden>
+<input type="number" name="page" data-endpoint="GETdashboard-users" data-component="query"  hidden>
 <br>
 Which page to show.</p>
 </form>
 
 
-## user/users
-
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
-    "https://api.sunvest.test/user/users" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://api.sunvest.test/user/users"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response => response.json());
-```
-
-
-<div id="execution-results-POSTuser-users" hidden>
-    <blockquote>Received response<span id="execution-response-status-POSTuser-users"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-POSTuser-users"></code></pre>
-</div>
-<div id="execution-error-POSTuser-users" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTuser-users"></code></pre>
-</div>
-<form id="form-POSTuser-users" data-method="POST" data-path="user/users" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTuser-users', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTuser-users" onclick="tryItOut('POSTuser-users');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTuser-users" onclick="cancelTryOut('POSTuser-users');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTuser-users" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-black">POST</small>
- <b><code>user/users</code></b>
-</p>
-</form>
-
-
-## GET User
+## GET Full User data
 
 
 Get information on a single user
@@ -138,14 +84,14 @@ Get information on a single user
 
 ```bash
 curl -X GET \
-    -G "https://api.sunvest.test/user/users/in" \
+    -G "https://api.sunvest.test/dashboard/users/illum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/user/users/in"
+    "https://api.sunvest.test/dashboard/users/illum"
 );
 
 let headers = {
@@ -168,29 +114,29 @@ fetch(url, {
     "message": "Unauthenticated."
 }
 ```
-<div id="execution-results-GETuser-users--user-" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETuser-users--user-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETuser-users--user-"></code></pre>
+<div id="execution-results-GETdashboard-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETdashboard-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETdashboard-users--user-"></code></pre>
 </div>
-<div id="execution-error-GETuser-users--user-" hidden>
+<div id="execution-error-GETdashboard-users--user-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETuser-users--user-"></code></pre>
+    <pre><code id="execution-error-message-GETdashboard-users--user-"></code></pre>
 </div>
-<form id="form-GETuser-users--user-" data-method="GET" data-path="user/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETuser-users--user-', this);">
+<form id="form-GETdashboard-users--user-" data-method="GET" data-path="dashboard/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETdashboard-users--user-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETuser-users--user-" onclick="tryItOut('GETuser-users--user-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETuser-users--user-" onclick="cancelTryOut('GETuser-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETuser-users--user-" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETdashboard-users--user-" onclick="tryItOut('GETdashboard-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETdashboard-users--user-" onclick="cancelTryOut('GETdashboard-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETdashboard-users--user-" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
- <b><code>user/users/{user}</code></b>
+ <b><code>dashboard/users/{user}</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
 <b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="user" data-endpoint="GETuser-users--user-" data-component="url" required  hidden>
+<input type="text" name="user" data-endpoint="GETdashboard-users--user-" data-component="url" required  hidden>
 <br>
 </p>
 </form>
@@ -205,7 +151,7 @@ Update user data. This should be a POST request
 
 ```bash
 curl -X PUT \
-    "https://api.sunvest.test/user/users/voluptate" \
+    "https://api.sunvest.test/dashboard/users/maiores" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"firstName":"\"Damilare\"","lastName":"\"Abi\"","phone":"\"Abi\"","update_type":"\"profile\"","_method":"\"PUT\"","current_password":"\"123456\"","password":"\"123456\"","password_confirmation":"\"123456\""}'
@@ -214,7 +160,7 @@ curl -X PUT \
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/user/users/voluptate"
+    "https://api.sunvest.test/dashboard/users/maiores"
 );
 
 let headers = {
@@ -241,137 +187,84 @@ fetch(url, {
 ```
 
 
-<div id="execution-results-PUTuser-users--user-" hidden>
-    <blockquote>Received response<span id="execution-response-status-PUTuser-users--user-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-PUTuser-users--user-"></code></pre>
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-PUTdashboard-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTdashboard-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTdashboard-users--user-"></code></pre>
 </div>
-<div id="execution-error-PUTuser-users--user-" hidden>
+<div id="execution-error-PUTdashboard-users--user-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTuser-users--user-"></code></pre>
+    <pre><code id="execution-error-message-PUTdashboard-users--user-"></code></pre>
 </div>
-<form id="form-PUTuser-users--user-" data-method="PUT" data-path="user/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTuser-users--user-', this);">
+<form id="form-PUTdashboard-users--user-" data-method="PUT" data-path="dashboard/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTdashboard-users--user-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTuser-users--user-" onclick="tryItOut('PUTuser-users--user-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTuser-users--user-" onclick="cancelTryOut('PUTuser-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTuser-users--user-" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTdashboard-users--user-" onclick="tryItOut('PUTdashboard-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTdashboard-users--user-" onclick="cancelTryOut('PUTdashboard-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTdashboard-users--user-" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-darkblue">PUT</small>
- <b><code>user/users/{user}</code></b>
+ <b><code>dashboard/users/{user}</code></b>
 </p>
 <p>
 <small class="badge badge-purple">PATCH</small>
- <b><code>user/users/{user}</code></b>
+ <b><code>dashboard/users/{user}</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
 <b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="user" data-endpoint="PUTuser-users--user-" data-component="url" required  hidden>
+<input type="text" name="user" data-endpoint="PUTdashboard-users--user-" data-component="url" required  hidden>
 <br>
 </p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
 <b><code>firstName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="firstName" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<input type="text" name="firstName" data-endpoint="PUTdashboard-users--user-" data-component="body"  hidden>
 <br>
 Firstname of user.</p>
 <p>
 <b><code>lastName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="lastName" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<input type="text" name="lastName" data-endpoint="PUTdashboard-users--user-" data-component="body"  hidden>
 <br>
 Surname/Last name of user.</p>
 <p>
 <b><code>phone</code></b>&nbsp;&nbsp;<small>numeric</small>     <i>optional</i> &nbsp;
-<input type="text" name="phone" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<input type="text" name="phone" data-endpoint="PUTdashboard-users--user-" data-component="body"  hidden>
 <br>
 Phone number of user.</p>
 <p>
 <b><code>update_type</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="update_type" data-endpoint="PUTuser-users--user-" data-component="body" required  hidden>
+<input type="text" name="update_type" data-endpoint="PUTdashboard-users--user-" data-component="body" required  hidden>
 <br>
 in:profile,password What type of update whether for profile data or password.</p>
 <p>
 <b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="_method" data-endpoint="PUTuser-users--user-" data-component="body" required  hidden>
+<input type="text" name="_method" data-endpoint="PUTdashboard-users--user-" data-component="body" required  hidden>
 <br>
 This will tell backend to see it as an update request.</p>
 <p>
 <b><code>current_password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="current_password" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<input type="text" name="current_password" data-endpoint="PUTdashboard-users--user-" data-component="body"  hidden>
 <br>
 min:6 Account password.</p>
 <p>
 <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="password" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<input type="text" name="password" data-endpoint="PUTdashboard-users--user-" data-component="body"  hidden>
 <br>
 min:6 Account password.</p>
 <p>
 <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="password_confirmation" data-endpoint="PUTuser-users--user-" data-component="body"  hidden>
+<input type="text" name="password_confirmation" data-endpoint="PUTdashboard-users--user-" data-component="body"  hidden>
 <br>
 min:6 Retype account password.</p>
 
-</form>
-
-
-## user/users/{user}
-
-
-
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "https://api.sunvest.test/user/users/eveniet" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://api.sunvest.test/user/users/eveniet"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response => response.json());
-```
-
-
-<div id="execution-results-DELETEuser-users--user-" hidden>
-    <blockquote>Received response<span id="execution-response-status-DELETEuser-users--user-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEuser-users--user-"></code></pre>
-</div>
-<div id="execution-error-DELETEuser-users--user-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEuser-users--user-"></code></pre>
-</div>
-<form id="form-DELETEuser-users--user-" data-method="DELETE" data-path="user/users/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEuser-users--user-', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEuser-users--user-" onclick="tryItOut('DELETEuser-users--user-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEuser-users--user-" onclick="cancelTryOut('DELETEuser-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEuser-users--user-" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-red">DELETE</small>
- <b><code>user/users/{user}</code></b>
-</p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-<p>
-<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="user" data-endpoint="DELETEuser-users--user-" data-component="url" required  hidden>
-<br>
-</p>
 </form>
 
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Api\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Api\Admin\InvestmentController as AdminInvestmentController;
 
+use App\Http\Controllers\PaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -32,13 +33,16 @@ use Laravel\Fortify\Http\Controllers\VerifyEmailController;
 
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});*/
+});
 Route::get('/', function () {
     return ['success'=>true];
 });
 Route::get('/me', function () {
     return ['success'=>config('app.apiUrl')];
-});
+});*/
+Route::get('/', [HomeController::class,'home'])->name('home');
+Route::get('/marketplace', [HomeController::class,'marketplace'])->name('marketplace');
+Route::get('/marketplace/{project}', [HomeController::class,'project'])->name('project');
 
 // Authentication...
 // user controller routes
@@ -66,7 +70,7 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 
 
 //Main app routes
-Route::middleware('auth:api')->group(function (){
+Route::prefix('dashboard')->middleware(['auth:api','verified'])->group(function (){
 //    Route::get('/user',[Usercontroller::class,'index']);
 //    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -123,19 +127,20 @@ Route::middleware('auth:api')->group(function (){
 */
 
     Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function (){
-        Route::apiResource('/',AdminDashboardController::class);
+        Route::get('/',[AdminDashboardController::class,'index'])->name('dashboard');
         Route::apiResource('users',AdminUserController::class);
         Route::apiResource('projects',AdminProjectController::class);
         Route::apiResource('investments',AdminInvestmentController::class);
     });
 
-    Route::prefix('user')->name('user.')->middleware('role:admin')->group(function (){
+    Route::name('user.')->middleware('role:user')->group(function (){
+        Route::get('/',[DashboardController::class,'index'])->name('dashboard');
         Route::apiResource('users',UserController::class);
         Route::apiResource('projects',ProjectController::class);
         Route::apiResource('investments',InvestmentController::class);
     });
-
-    Route::name('user')->group(function (){
-
-    });
 });
+
+
+Route::post('/pay', [PaymentController::class,'redirectToGateway'])->name('pay');
+Route::get('/payment/callback/rave', [PaymentController::class,'raveCallback'])->name('raveCallback');

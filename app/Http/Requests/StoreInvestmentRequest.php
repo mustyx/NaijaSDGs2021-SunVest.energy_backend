@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateInvestmentRequest extends FormRequest
+class StoreInvestmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class UpdateInvestmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'integer'],
-            'project_id' => ['required','string'],
+            'project_id' => ['required'],
             'cells' => ['required','integer'],
         ];
     }

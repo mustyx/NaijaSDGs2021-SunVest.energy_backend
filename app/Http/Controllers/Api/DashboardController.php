@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Traits\ApiResponseTrait;
 
 /**
  * @group Dashboard
@@ -13,58 +14,23 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    use ApiResponseTrait;
     /**
-     * Display a listing of the resource.
+     * GET Dashboard data
      *
-     * @return \Illuminate\Http\Response
+     * @response {"status":"Success","message":null,"data":{"projects":0,"investments":0,"cells_invested_in":0,"amount_invested":0}}
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $projects = count(auth()->user()->projects());
+        $investments = auth()->user()->investments()->paid();
+        $payments = auth()->user()->payments()->paid();
+        $data = [
+            'projects' => $projects,
+            'investments' => count($investments->get()),
+            'cells_invested_in' => (int)$investments->sum('cells'),
+            'amount_invested' => (int)$payments->sum('amount')
+        ];
+        return $this->success($data);
     }
 }

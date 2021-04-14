@@ -11,14 +11,14 @@ List all projects
 
 ```bash
 curl -X GET \
-    -G "https://api.sunvest.test/admin/projects?page=3" \
+    -G "https://api.sunvest.test/dashboard/admin/projects?page=3" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/admin/projects"
+    "https://api.sunvest.test/dashboard/admin/projects"
 );
 
 let params = {
@@ -40,36 +40,55 @@ fetch(url, {
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "status": "Success",
+    "message": null,
+    "data": [
+        {
+            "id": 1,
+            "name": "5KVA Rooftop Mini Grid",
+            "slug": "5kva-rooftop-mini-grid",
+            "description": "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.",
+            "total_cells": 120,
+            "taken_cells": 0,
+            "cost_per_cell": 23500,
+            "profit": 22,
+            "maturity_period": 20,
+            "start_date": "2021-05-01T06:44:50.000000Z",
+            "end_date": "2021-05-20T06:44:50.000000Z",
+            "ad_due_date": "2021-04-28T06:44:50.000000Z",
+            "is_active": null,
+            "created_at": "2021-04-06T06:44:50.000000Z"
+        }
+    ]
 }
 ```
-<div id="execution-results-GETadmin-projects" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETadmin-projects"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETadmin-projects"></code></pre>
+<div id="execution-results-GETdashboard-admin-projects" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETdashboard-admin-projects"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETdashboard-admin-projects"></code></pre>
 </div>
-<div id="execution-error-GETadmin-projects" hidden>
+<div id="execution-error-GETdashboard-admin-projects" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETadmin-projects"></code></pre>
+    <pre><code id="execution-error-message-GETdashboard-admin-projects"></code></pre>
 </div>
-<form id="form-GETadmin-projects" data-method="GET" data-path="admin/projects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin-projects', this);">
+<form id="form-GETdashboard-admin-projects" data-method="GET" data-path="dashboard/admin/projects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETdashboard-admin-projects', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin-projects" onclick="tryItOut('GETadmin-projects');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin-projects" onclick="cancelTryOut('GETadmin-projects');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin-projects" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETdashboard-admin-projects" onclick="tryItOut('GETdashboard-admin-projects');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETdashboard-admin-projects" onclick="cancelTryOut('GETdashboard-admin-projects');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETdashboard-admin-projects" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
- <b><code>admin/projects</code></b>
+ <b><code>dashboard/admin/projects</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p>
 <b><code>page</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="page" data-endpoint="GETadmin-projects" data-component="query"  hidden>
+<input type="number" name="page" data-endpoint="GETdashboard-admin-projects" data-component="query"  hidden>
 <br>
 Which page to show.</p>
 </form>
@@ -84,16 +103,16 @@ Create a new project
 
 ```bash
 curl -X POST \
-    "https://api.sunvest.test/admin/projects" \
+    "https://api.sunvest.test/dashboard/admin/projects" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"\"5KVA Solar Mini-Grid\"","description":"qui","total_cells":50,"cost_per_cell":5000,"profit":"10.5","maturity_period":20,"start_date":"\"25\/04\/2021\"","end_date":"09\/04\/2021","ad_due_date":"\"20\/04\/2021\"","due_date":"\"25\/05\/2021\""}'
+    -d '{"name":"\"5KVA Solar Mini-Grid\"","description":"eius","total_cells":50,"cost_per_cell":5000,"profit":"10.5","maturity_period":20,"start_date":"\"25\/04\/2021\"","end_date":"12\/04\/2021","ad_due_date":"\"20\/04\/2021\"","due_date":"\"25\/05\/2021\""}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/admin/projects"
+    "https://api.sunvest.test/dashboard/admin/projects"
 );
 
 let headers = {
@@ -103,13 +122,13 @@ let headers = {
 
 let body = {
     "name": "\"5KVA Solar Mini-Grid\"",
-    "description": "qui",
+    "description": "eius",
     "total_cells": 50,
     "cost_per_cell": 5000,
     "profit": "10.5",
     "maturity_period": 20,
     "start_date": "\"25\/04\/2021\"",
-    "end_date": "09\/04\/2021",
+    "end_date": "12\/04\/2021",
     "ad_due_date": "\"20\/04\/2021\"",
     "due_date": "\"25\/05\/2021\""
 }
@@ -122,74 +141,83 @@ fetch(url, {
 ```
 
 
-<div id="execution-results-POSTadmin-projects" hidden>
-    <blockquote>Received response<span id="execution-response-status-POSTadmin-projects"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-POSTadmin-projects"></code></pre>
+> Example response (200):
+
+```json
+{
+    "status": "Success",
+    "message": "Project successfully created.",
+    "data": null
+}
+```
+<div id="execution-results-POSTdashboard-admin-projects" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTdashboard-admin-projects"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTdashboard-admin-projects"></code></pre>
 </div>
-<div id="execution-error-POSTadmin-projects" hidden>
+<div id="execution-error-POSTdashboard-admin-projects" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTadmin-projects"></code></pre>
+    <pre><code id="execution-error-message-POSTdashboard-admin-projects"></code></pre>
 </div>
-<form id="form-POSTadmin-projects" data-method="POST" data-path="admin/projects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTadmin-projects', this);">
+<form id="form-POSTdashboard-admin-projects" data-method="POST" data-path="dashboard/admin/projects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTdashboard-admin-projects', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTadmin-projects" onclick="tryItOut('POSTadmin-projects');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTadmin-projects" onclick="cancelTryOut('POSTadmin-projects');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTadmin-projects" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTdashboard-admin-projects" onclick="tryItOut('POSTdashboard-admin-projects');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTdashboard-admin-projects" onclick="cancelTryOut('POSTdashboard-admin-projects');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTdashboard-admin-projects" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-black">POST</small>
- <b><code>admin/projects</code></b>
+ <b><code>dashboard/admin/projects</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
 <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="name" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="text" name="name" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 Name of project.</p>
 <p>
 <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="description" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="text" name="description" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 Detailed description of projects.</p>
 <p>
 <b><code>total_cells</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="total_cells" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="number" name="total_cells" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 Total number of cells the project has.</p>
 <p>
 <b><code>cost_per_cell</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="cost_per_cell" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="number" name="cost_per_cell" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 Investment cost per cell.</p>
 <p>
 <b><code>profit</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
-<input type="text" name="profit" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="text" name="profit" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 Expected percentage profit after maturity</p>
 <p>
 <b><code>maturity_period</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="maturity_period" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="number" name="maturity_period" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 How long it will take for investment to mature in weeks.</p>
 <p>
 <b><code>start_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
-<input type="text" name="start_date" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="text" name="start_date" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 When project development will start.</p>
 <p>
 <b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="end_date" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="text" name="end_date" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 The value must be a valid date in the format d/m/Y.</p>
 <p>
 <b><code>ad_due_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
-<input type="text" name="ad_due_date" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="text" name="ad_due_date" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 When this investment ad will expire.</p>
 <p>
 <b><code>due_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
-<input type="text" name="due_date" data-endpoint="POSTadmin-projects" data-component="body" required  hidden>
+<input type="text" name="due_date" data-endpoint="POSTdashboard-admin-projects" data-component="body" required  hidden>
 <br>
 When project development will end.</p>
 
@@ -205,14 +233,14 @@ Get information on a single project
 
 ```bash
 curl -X GET \
-    -G "https://api.sunvest.test/admin/projects/voluptas" \
+    -G "https://api.sunvest.test/dashboard/admin/projects/ipsam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/admin/projects/voluptas"
+    "https://api.sunvest.test/dashboard/admin/projects/ipsam"
 );
 
 let headers = {
@@ -228,36 +256,54 @@ fetch(url, {
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "status": "Success",
+    "message": null,
+    "data": {
+        "id": 1,
+        "name": "5KVA Rooftop Mini Grid",
+        "slug": "5kva-rooftop-mini-grid",
+        "description": "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.",
+        "total_cells": 120,
+        "taken_cells": 0,
+        "cost_per_cell": 23500,
+        "profit": 22,
+        "maturity_period": 20,
+        "start_date": "2021-05-01T06:44:50.000000Z",
+        "end_date": "2021-05-20T06:44:50.000000Z",
+        "ad_due_date": "2021-04-28T06:44:50.000000Z",
+        "is_active": null,
+        "created_at": "2021-04-06T06:44:50.000000Z",
+        "investments": []
+    }
 }
 ```
-<div id="execution-results-GETadmin-projects--project-" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETadmin-projects--project-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETadmin-projects--project-"></code></pre>
+<div id="execution-results-GETdashboard-admin-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETdashboard-admin-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETdashboard-admin-projects--project-"></code></pre>
 </div>
-<div id="execution-error-GETadmin-projects--project-" hidden>
+<div id="execution-error-GETdashboard-admin-projects--project-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETadmin-projects--project-"></code></pre>
+    <pre><code id="execution-error-message-GETdashboard-admin-projects--project-"></code></pre>
 </div>
-<form id="form-GETadmin-projects--project-" data-method="GET" data-path="admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETadmin-projects--project-', this);">
+<form id="form-GETdashboard-admin-projects--project-" data-method="GET" data-path="dashboard/admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETdashboard-admin-projects--project-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETadmin-projects--project-" onclick="tryItOut('GETadmin-projects--project-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETadmin-projects--project-" onclick="cancelTryOut('GETadmin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETadmin-projects--project-" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETdashboard-admin-projects--project-" onclick="tryItOut('GETdashboard-admin-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETdashboard-admin-projects--project-" onclick="cancelTryOut('GETdashboard-admin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETdashboard-admin-projects--project-" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
- <b><code>admin/projects/{project}</code></b>
+ <b><code>dashboard/admin/projects/{project}</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
 <b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="project" data-endpoint="GETadmin-projects--project-" data-component="url" required  hidden>
+<input type="text" name="project" data-endpoint="GETdashboard-admin-projects--project-" data-component="url" required  hidden>
 <br>
 </p>
 </form>
@@ -272,16 +318,16 @@ Update project data. This should be a POST request
 
 ```bash
 curl -X PUT \
-    "https://api.sunvest.test/admin/projects/quidem" \
+    "https://api.sunvest.test/dashboard/admin/projects/quasi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"\"5KVA Solar Mini-Grid\"","description":"est","total_cells":50,"cost_per_cell":5000,"profit":"10.5","maturity_period":20,"start_date":"\"25\/04\/2021\"","end_date":"09\/04\/2021","ad_due_date":"\"20\/04\/2021\"","_method":"\"PUT\"","due_date":"\"25\/05\/2021\""}'
+    -d '{"name":"\"5KVA Solar Mini-Grid\"","description":"possimus","total_cells":50,"cost_per_cell":5000,"profit":"10.5","maturity_period":20,"start_date":"\"25\/04\/2021\"","end_date":"12\/04\/2021","ad_due_date":"\"20\/04\/2021\"","_method":"\"PUT\"","due_date":"\"25\/05\/2021\""}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/admin/projects/quidem"
+    "https://api.sunvest.test/dashboard/admin/projects/quasi"
 );
 
 let headers = {
@@ -291,13 +337,13 @@ let headers = {
 
 let body = {
     "name": "\"5KVA Solar Mini-Grid\"",
-    "description": "est",
+    "description": "possimus",
     "total_cells": 50,
     "cost_per_cell": 5000,
     "profit": "10.5",
     "maturity_period": 20,
     "start_date": "\"25\/04\/2021\"",
-    "end_date": "09\/04\/2021",
+    "end_date": "12\/04\/2021",
     "ad_due_date": "\"20\/04\/2021\"",
     "_method": "\"PUT\"",
     "due_date": "\"25\/05\/2021\""
@@ -311,89 +357,113 @@ fetch(url, {
 ```
 
 
-<div id="execution-results-PUTadmin-projects--project-" hidden>
-    <blockquote>Received response<span id="execution-response-status-PUTadmin-projects--project-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-PUTadmin-projects--project-"></code></pre>
+> Example response (200):
+
+```json
+{
+    "status": "Success",
+    "message": "Project successfully updated.",
+    "data": {
+        "id": 1,
+        "name": "5KVA Rooftop Solar Mini Grid",
+        "slug": "5kva-rooftop-mini-grid",
+        "description": "Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.",
+        "total_cells": 120,
+        "taken_cells": 0,
+        "cost_per_cell": 23500,
+        "profit": 22,
+        "maturity_period": 20,
+        "start_date": "2021-05-05T14:30:52.000000Z",
+        "end_date": "2021-05-20T14:30:52.000000Z",
+        "ad_due_date": "2021-04-28T14:30:52.000000Z",
+        "is_active": null,
+        "created_at": "2021-04-06T06:44:50.000000Z"
+    }
+}
+```
+<div id="execution-results-PUTdashboard-admin-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-PUTdashboard-admin-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-PUTdashboard-admin-projects--project-"></code></pre>
 </div>
-<div id="execution-error-PUTadmin-projects--project-" hidden>
+<div id="execution-error-PUTdashboard-admin-projects--project-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTadmin-projects--project-"></code></pre>
+    <pre><code id="execution-error-message-PUTdashboard-admin-projects--project-"></code></pre>
 </div>
-<form id="form-PUTadmin-projects--project-" data-method="PUT" data-path="admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTadmin-projects--project-', this);">
+<form id="form-PUTdashboard-admin-projects--project-" data-method="PUT" data-path="dashboard/admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('PUTdashboard-admin-projects--project-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTadmin-projects--project-" onclick="tryItOut('PUTadmin-projects--project-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTadmin-projects--project-" onclick="cancelTryOut('PUTadmin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTadmin-projects--project-" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-PUTdashboard-admin-projects--project-" onclick="tryItOut('PUTdashboard-admin-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-PUTdashboard-admin-projects--project-" onclick="cancelTryOut('PUTdashboard-admin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-PUTdashboard-admin-projects--project-" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-darkblue">PUT</small>
- <b><code>admin/projects/{project}</code></b>
+ <b><code>dashboard/admin/projects/{project}</code></b>
 </p>
 <p>
 <small class="badge badge-purple">PATCH</small>
- <b><code>admin/projects/{project}</code></b>
+ <b><code>dashboard/admin/projects/{project}</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
 <b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="project" data-endpoint="PUTadmin-projects--project-" data-component="url" required  hidden>
+<input type="text" name="project" data-endpoint="PUTdashboard-admin-projects--project-" data-component="url" required  hidden>
 <br>
 </p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
 <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="name" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="name" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 Name of project.</p>
 <p>
 <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="description" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="description" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 Detailed description of projects.</p>
 <p>
 <b><code>total_cells</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="total_cells" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="number" name="total_cells" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 Total number of cells the project has.</p>
 <p>
 <b><code>cost_per_cell</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="cost_per_cell" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="number" name="cost_per_cell" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 Investment cost per cell.</p>
 <p>
 <b><code>profit</code></b>&nbsp;&nbsp;<small>numeric</small>  &nbsp;
-<input type="text" name="profit" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="profit" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 Expected percentage profit after maturity</p>
 <p>
 <b><code>maturity_period</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="maturity_period" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="number" name="maturity_period" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 How long it will take for investment to mature in weeks.</p>
 <p>
 <b><code>start_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
-<input type="text" name="start_date" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="start_date" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 When project development will start.</p>
 <p>
 <b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="end_date" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="end_date" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 The value must be a valid date in the format d/m/Y.</p>
 <p>
 <b><code>ad_due_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
-<input type="text" name="ad_due_date" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="ad_due_date" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 When this investment ad will expire.</p>
 <p>
 <b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="_method" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="_method" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 This will tell backend to see it as an update request.</p>
 <p>
 <b><code>due_date</code></b>&nbsp;&nbsp;<small>date_format:d/m/Y</small>  &nbsp;
-<input type="text" name="due_date" data-endpoint="PUTadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="due_date" data-endpoint="PUTdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 When project development will end.</p>
 
@@ -409,7 +479,7 @@ Soft delete a project. This should be a POST request
 
 ```bash
 curl -X DELETE \
-    "https://api.sunvest.test/admin/projects/facere" \
+    "https://api.sunvest.test/dashboard/admin/projects/quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"_method":"\"DELETE\""}'
@@ -418,7 +488,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/admin/projects/facere"
+    "https://api.sunvest.test/dashboard/admin/projects/quia"
 );
 
 let headers = {
@@ -438,35 +508,42 @@ fetch(url, {
 ```
 
 
-<div id="execution-results-DELETEadmin-projects--project-" hidden>
-    <blockquote>Received response<span id="execution-response-status-DELETEadmin-projects--project-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEadmin-projects--project-"></code></pre>
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-DELETEdashboard-admin-projects--project-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEdashboard-admin-projects--project-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEdashboard-admin-projects--project-"></code></pre>
 </div>
-<div id="execution-error-DELETEadmin-projects--project-" hidden>
+<div id="execution-error-DELETEdashboard-admin-projects--project-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEadmin-projects--project-"></code></pre>
+    <pre><code id="execution-error-message-DELETEdashboard-admin-projects--project-"></code></pre>
 </div>
-<form id="form-DELETEadmin-projects--project-" data-method="DELETE" data-path="admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEadmin-projects--project-', this);">
+<form id="form-DELETEdashboard-admin-projects--project-" data-method="DELETE" data-path="dashboard/admin/projects/{project}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEdashboard-admin-projects--project-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEadmin-projects--project-" onclick="tryItOut('DELETEadmin-projects--project-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEadmin-projects--project-" onclick="cancelTryOut('DELETEadmin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEadmin-projects--project-" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEdashboard-admin-projects--project-" onclick="tryItOut('DELETEdashboard-admin-projects--project-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEdashboard-admin-projects--project-" onclick="cancelTryOut('DELETEdashboard-admin-projects--project-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEdashboard-admin-projects--project-" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-red">DELETE</small>
- <b><code>admin/projects/{project}</code></b>
+ <b><code>dashboard/admin/projects/{project}</code></b>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
 <b><code>project</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="project" data-endpoint="DELETEadmin-projects--project-" data-component="url" required  hidden>
+<input type="text" name="project" data-endpoint="DELETEdashboard-admin-projects--project-" data-component="url" required  hidden>
 <br>
 </p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
 <b><code>_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="_method" data-endpoint="DELETEadmin-projects--project-" data-component="body" required  hidden>
+<input type="text" name="_method" data-endpoint="DELETEdashboard-admin-projects--project-" data-component="body" required  hidden>
 <br>
 This will tell backend that its actually a delete request.</p>
 

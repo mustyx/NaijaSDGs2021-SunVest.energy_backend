@@ -1,128 +1,6 @@
 # Endpoints
 
 
-## /
-
-
-
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "https://api.sunvest.test/" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://api.sunvest.test/"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response => response.json());
-```
-
-
-> Example response (200):
-
-```json
-{
-    "success": true
-}
-```
-<div id="execution-results-GET-" hidden>
-    <blockquote>Received response<span id="execution-response-status-GET-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GET-"></code></pre>
-</div>
-<div id="execution-error-GET-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GET-"></code></pre>
-</div>
-<form id="form-GET-" data-method="GET" data-path="/" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GET-', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GET-" onclick="tryItOut('GET-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GET-" onclick="cancelTryOut('GET-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GET-" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-green">GET</small>
- <b><code>/</code></b>
-</p>
-</form>
-
-
-## me
-
-
-
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "https://api.sunvest.test/me" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://api.sunvest.test/me"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response => response.json());
-```
-
-
-> Example response (200):
-
-```json
-{
-    "success": "api.sunvest.test"
-}
-```
-<div id="execution-results-GETme" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETme"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETme"></code></pre>
-</div>
-<div id="execution-error-GETme" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETme"></code></pre>
-</div>
-<form id="form-GETme" data-method="GET" data-path="me" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETme', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETme" onclick="tryItOut('GETme');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETme" onclick="cancelTryOut('GETme');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETme" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-green">GET</small>
- <b><code>me</code></b>
-</p>
-</form>
-
-
 ## Mark the authenticated user&#039;s email address as verified.
 
 
@@ -132,14 +10,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "https://api.sunvest.test/email/verify/vitae/aut" \
+    -G "https://api.sunvest.test/email/verify/voluptatem/quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://api.sunvest.test/email/verify/vitae/aut"
+    "https://api.sunvest.test/email/verify/voluptatem/quia"
 );
 
 let headers = {
@@ -722,6 +600,15 @@ fetch(url, {
 ```
 
 
+> Example response (404):
+
+```json
+{
+    "status": "Error",
+    "message": "No such user",
+    "data": null
+}
+```
 <div id="execution-results-POSTemail-verification-notification" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTemail-verification-notification"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTemail-verification-notification"></code></pre>

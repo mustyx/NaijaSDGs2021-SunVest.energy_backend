@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProjectResource;
+use App\Http\Resources\ProjectWithInvestmentResource;
+use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Traits\ApiResponseTrait;
 
 /**
  * @group Projects
@@ -13,21 +17,22 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    use ApiResponseTrait;
+
     /**
-     * Display a listing of the resource.
+     * GET Projects
      *
-     * @return \Illuminate\Http\Response
+     * List all projects
+     * @queryParam page Which page to show. Example: 3
      */
     public function index()
     {
-        //
+        $projects = auth()->user()->projects();
+        return $this->success(ProjectResource::collection($projects));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @hideFromAPIDocumentation
      */
     public function store(Request $request)
     {
@@ -35,22 +40,21 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * GET Single Project
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Get information on a single project
+     * @param  Project $project Example: slug
      */
-    public function show($id)
+    public function show(Project $project)
     {
-        //
+        if($project->investments()->where('user_id',auth()->id())->exists()){
+            return $this->success(new ProjectWithInvestmentResource($project));
+        }
+        return $this->error('Invalid project',403);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @hideFromAPIDocumentation
      */
     public function update(Request $request, $id)
     {
@@ -58,10 +62,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @hideFromAPIDocumentation
      */
     public function destroy($id)
     {

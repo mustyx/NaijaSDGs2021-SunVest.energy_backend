@@ -18,7 +18,7 @@ trait ApiResponseTrait
             'status' => 'Success',
             'message' => $message,
             'data' => $data
-        ], $code);
+        ], $code,[],JSON_UNESCAPED_SLASHES);
     }
 
     /**

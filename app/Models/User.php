@@ -89,6 +89,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Investment::class);
     }
 
+    public function payments(){
+        return $this->hasMany(Payment::class);
+    }
+
+    public function fullName(){
+        return $this->firstName.' '.$this->lastName;
+    }
+
     public function sendEmailVerificationNotification(){
         $this->notify(new VerifyEmailNotification());
     }

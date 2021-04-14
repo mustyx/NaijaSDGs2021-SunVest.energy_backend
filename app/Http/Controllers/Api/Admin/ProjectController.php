@@ -27,10 +27,11 @@ class ProjectController extends Controller
      *
      * List all projects
      * @queryParam page Which page to show. Example: 3
+     * @response {"status":"Success","message":null,"data":[{"id":1,"name":"5KVA Rooftop Mini Grid","slug":"5kva-rooftop-mini-grid","description":"Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.","total_cells":120,"taken_cells":0,"cost_per_cell":23500,"profit":22,"maturity_period":20,"start_date":"2021-05-01T06:44:50.000000Z","end_date":"2021-05-20T06:44:50.000000Z","ad_due_date":"2021-04-28T06:44:50.000000Z","is_active":null,"created_at":"2021-04-06T06:44:50.000000Z"}]}
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::with('investments')->get();
         return $this->success(ProjectResource::collection($projects));
     }
 
@@ -47,12 +48,14 @@ class ProjectController extends Controller
      * @bodyParam  start_date date_format:d/m/Y required When project development will start. Example: "25/04/2021"
      * @bodyParam  due_date date_format:d/m/Y required When project development will end. Example: "25/05/2021"
      * @bodyParam  ad_due_date date_format:d/m/Y required When this investment ad will expire. Example: "20/04/2021"
+     *
+     * @response {"status":"Success","message":"Project successfully created.","data":null}
      */
     public function store(StoreProjectRequest $request, ProjectService $projectService)
     {
         $project = $projectService->createNewProject($request);
         if(!is_null($project)) {
-            return $this->success(null,'Project successfully created.',201);
+            return $this->success(new ProjectResource($project),'Project successfully created.',201);
         }
         return $this->error('Failed to create project',422);
     }
@@ -62,6 +65,8 @@ class ProjectController extends Controller
      *
      * Get information on a single project
      * @param  Project $project Example: slug
+     *
+     * @response {"status":"Success","message":null,"data":{"id":1,"name":"5KVA Rooftop Mini Grid","slug":"5kva-rooftop-mini-grid","description":"Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.","total_cells":120,"taken_cells":0,"cost_per_cell":23500,"profit":22,"maturity_period":20,"start_date":"2021-05-01T06:44:50.000000Z","end_date":"2021-05-20T06:44:50.000000Z","ad_due_date":"2021-04-28T06:44:50.000000Z","is_active":null,"created_at":"2021-04-06T06:44:50.000000Z","investments":[]}}
      */
     public function show(Project $project)
     {
@@ -82,6 +87,8 @@ class ProjectController extends Controller
      * @bodyParam  start_date date_format:d/m/Y required When project development will start. Example: "25/04/2021"
      * @bodyParam  due_date date_format:d/m/Y required When project development will end. Example: "25/05/2021"
      * @bodyParam  ad_due_date date_format:d/m/Y required When this investment ad will expire. Example: "20/04/2021"
+     *
+     * @response {"status":"Success","message":"Project successfully updated.","data":{"id":1,"name":"5KVA Rooftop Solar Mini Grid","slug":"5kva-rooftop-mini-grid","description":"Ut consectetuer ultricies est fringilla mus. Est ridiculus tempor facilisi curabitur orci montes proin. Accumsan metus risus feugiat ultricies tortor ullamcorper natoque. Urna magna bibendum ac pellentesque. Tincidunt parturient venenatis dolor ridiculus at nulla consequat. Nam molestie magna bibendum metus nascetur nulla.\r\n\r\nSi vehicula hendrerit dis justo fusce. Aptent erat molestie ac cras. Cras habitasse consequat hac lobortis ornare id. Platea justo ornare odio non morbi netus. Augue gravida iaculis sit nulla penatibus habitant. Eget tempor nullam interdum taciti maecenas.\r\n\r\nImperdiet eleifend gravida curae cubilia aenean justo. Fames eleifend ac vitae erat a. Integer mi aptent eget per odio nullam. Aliquam curabitur tristique magna class mus cubilia dis.","total_cells":120,"taken_cells":0,"cost_per_cell":23500,"profit":22,"maturity_period":20,"start_date":"2021-05-05T14:30:52.000000Z","end_date":"2021-05-20T14:30:52.000000Z","ad_due_date":"2021-04-28T14:30:52.000000Z","is_active":null,"created_at":"2021-04-06T06:44:50.000000Z"}}
      */
     public function update(UpdateProjectRequest $request, Project $project, ProjectService $projectService)
     {

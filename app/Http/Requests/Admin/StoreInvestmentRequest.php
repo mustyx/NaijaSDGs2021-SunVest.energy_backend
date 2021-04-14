@@ -25,7 +25,7 @@ class StoreInvestmentRequest extends FormRequest
     {
         return [
             'user_id' => ['required', 'integer'],
-            'project_id' => ['required','integer'],
+            'project_id' => ['required','string'],
             'cells' => ['required','integer'],
         ];
     }

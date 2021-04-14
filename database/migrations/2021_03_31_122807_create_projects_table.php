@@ -26,7 +26,7 @@ class CreateProjectsTable extends Migration
             $table->timestamp('end_date')->nullable();
             $table->timestamp('ad_due_date')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
-            $table->boolean('is_active')->nullable();
+            $table->boolean('is_active')->default(true)->nullable();
             $table->timestamps();
             $table->softDeletes();
 

@@ -23,8 +23,6 @@ Homestead.json
 .phpunit.result.cache
 
 # Custom
-public/docs
-resources/docs
 *.zip
 *.exe
 */images/*
@@ -38,3 +36,5 @@ error_log
 */.vscode/*
 .vscode/*
 /storage/tmp/
+/public/docs/
+/resources/docs/
